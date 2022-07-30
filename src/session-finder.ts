@@ -1,7 +1,7 @@
 import {Session} from './session';
 
 export class SessionFinder {
-    private sessions: Session[];
+    private readonly sessions: Session[];
 
     constructor(data: { round: string, title: string, date: string }[]) {
         this.sessions = data.map(({ round, title, date }) => ({
