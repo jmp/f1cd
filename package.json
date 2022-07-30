@@ -1,0 +1,25 @@
+{
+  "name": "f1cd",
+  "version": "0.0.1",
+  "description": "A simple countdown website for Formula One events.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmp/f1cd.git"
+  },
+  "author": "Jarkko Piiroinen",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
+}
