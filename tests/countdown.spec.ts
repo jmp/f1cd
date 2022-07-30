@@ -9,6 +9,14 @@ describe('countdown', () => {
         expect(countdown.seconds).toEqual(0);
     });
 
+    it('is zero when the "to" date is before "from" date', () => {
+        const countdown = new Countdown(
+            new Date('2022-01-01T00:00:30Z'),
+            new Date('2022-01-01T00:00:00Z')
+        );
+        expect(countdown.seconds).toEqual(0);
+    });
+
     it('is the difference in seconds when the dates are different', () => {
         const countdown = new Countdown(
             new Date('2022-01-01T00:00:00Z'),
