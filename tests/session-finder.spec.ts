@@ -4,14 +4,17 @@ describe('session finder', () => {
     it('fetches the next session from the given date', () => {
         const sessionFinder = new SessionFinder([
             {
+                round: 'Test Grand Prix',
                 title: 'Wrong session',
                 date: new Date('2022-01-01T12:00:00Z')
             },
             {
+                round: 'Test Grand Prix',
                 title: 'Correct session',
                 date: new Date('2022-01-02T12:00:00Z')
             },
             {
+                round: 'Test Grand Prix',
                 title: 'Wrong session',
                 date: new Date('2022-01-03T12:00:00Z')
             }
@@ -20,6 +23,7 @@ describe('session finder', () => {
         const session = sessionFinder.findNext(fromDate);
 
         expect(session).toEqual({
+            round: 'Test Grand Prix',
             title: 'Correct session',
             date: new Date('2022-01-02T12:00:00Z')
         })
