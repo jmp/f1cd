@@ -24,4 +24,10 @@ describe('formatter', () => {
 
         expect(formattedValue).toEqual('0 days, 1 hours, 2 minutes and 3 seconds');
     });
+
+    it('shows days, hours, minutes and seconds when the input is greater than a day', () => {
+        const formattedValue = new Formatter().format(24 * 60 * 60 + 2 * 60 * 60 + 3 * 60 + 4);
+
+        expect(formattedValue).toEqual('1 days, 2 hours, 3 minutes and 4 seconds');
+    });
 });
