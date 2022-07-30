@@ -4,7 +4,7 @@
   "description": "A simple countdown website for Formula One events.",
   "scripts": {
     "test": "jest --coverage",
-    "build": "esbuild src/api.ts --bundle --outdir=dist --minify --sourcemap"
+    "build": "esbuild src/api.ts --bundle --outdir=dist --minify"
   },
   "repository": {
     "type": "git",
