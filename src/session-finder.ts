@@ -4,9 +4,8 @@ export class SessionFinder {
     private readonly sessions: Session[];
 
     constructor(data: { round: string, title: string, date: string }[]) {
-        this.sessions = data.map(({ round, title, date }) => ({
-            round,
-            title,
+        this.sessions = data.map(({ date , ...rest}) => ({
+            ...rest,
             date: new Date(date)
         }))
     }
