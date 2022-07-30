@@ -12,6 +12,10 @@ export class SessionFinder {
     }
 
     findNext(fromDate: Date): Session | undefined {
-        return this.sessions.find(session => fromDate.getTime() <= session.date.getTime());
+        const session = this.sessions.find(session => fromDate.getTime() <= session.date.getTime());
+        if (session) {
+            return session;
+        }
+        return this.sessions[this.sessions.length - 1];
     }
 }
