@@ -2,7 +2,6 @@
   "name": "f1cd",
   "version": "0.0.1",
   "description": "A simple countdown website for Formula One events.",
-  "main": "index.js",
   "scripts": {
     "test": "jest --coverage"
   },
