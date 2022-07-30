@@ -6,4 +6,10 @@ describe('formatter', () => {
 
         expect(formattedValue).toEqual('0 days, 0 hours, 0 minutes and 0 seconds');
     });
+
+    it('shows seconds when when the input is less than a minute', () => {
+        const formattedValue = new Formatter().format(59);
+
+        expect(formattedValue).toEqual('0 days, 0 hours, 0 minutes and 59 seconds');
+    });
 });
