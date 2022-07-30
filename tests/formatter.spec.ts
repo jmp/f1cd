@@ -12,4 +12,10 @@ describe('formatter', () => {
 
         expect(formattedValue).toEqual('0 days, 0 hours, 0 minutes and 59 seconds');
     });
+
+    it('shows minutes and seconds when when the input is greater than a minute', () => {
+        const formattedValue = new Formatter().format(65);
+
+        expect(formattedValue).toEqual('0 days, 0 hours, 1 minutes and 5 seconds');
+    });
 });

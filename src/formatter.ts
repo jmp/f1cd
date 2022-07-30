@@ -1,5 +1,7 @@
 export class Formatter {
-    format(seconds: number): string {
-        return `0 days, 0 hours, 0 minutes and ${seconds} seconds`;
+    format(totalSeconds: number): string {
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds - minutes * 60;
+        return `0 days, 0 hours, ${minutes} minutes and ${seconds} seconds`;
     }
 }
