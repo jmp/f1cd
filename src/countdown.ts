@@ -1,7 +1,7 @@
 import {Formatter} from './formatter';
 
 export class Countdown {
-    readonly seconds: number;
+    private readonly seconds: number;
     private readonly formatter: Formatter;
 
     constructor(from: Date, to: Date, formatter: Formatter) {
