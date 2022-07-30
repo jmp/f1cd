@@ -1,5 +1,5 @@
 import {Countdown} from './countdown';
-import {Formatter} from "./formatter";
+import {Formatter} from './formatter';
 
 const targetId = 'countdown';
 const updateInterval = 1000;
