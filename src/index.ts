@@ -1,12 +1,11 @@
 import {Countdown} from './countdown';
 import {Formatter} from './formatter';
 import {SessionFinder} from './session-finder';
-import sessionData from './data/sessions.json';
+import sessions from './data/sessions.json';
 
 const updateInterval = 1000;
 
 const formatter = new Formatter();
-const sessions = sessionData.map(({ round, title, date }) => ({ round, title, date: new Date(date) }));
 const sessionFinder = new SessionFinder(sessions);
 
 const roundElement = document.getElementById('round')!;

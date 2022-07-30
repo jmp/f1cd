@@ -6,17 +6,17 @@ describe('session finder', () => {
             {
                 round: 'Test Grand Prix',
                 title: 'Wrong session',
-                date: new Date('2022-01-01T12:00:00Z')
+                date: '2022-01-01T12:00:00Z'
             },
             {
                 round: 'Test Grand Prix',
                 title: 'Correct session',
-                date: new Date('2022-01-02T12:00:00Z')
+                date: '2022-01-02T12:00:00Z'
             },
             {
                 round: 'Test Grand Prix',
                 title: 'Wrong session',
-                date: new Date('2022-01-03T12:00:00Z')
+                date: '2022-01-03T12:00:00Z'
             }
         ]);
         const fromDate = new Date('2022-01-01T16:00:00Z');
