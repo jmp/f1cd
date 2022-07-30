@@ -1,7 +1,7 @@
 import {Formatter} from '../src/formatter';
 
 describe('formatter', () => {
-    it('shows seconds when when the input is less than a minute', () => {
+    it('shows seconds when the input is less than a minute', () => {
         const formattedValue = new Formatter().format(5);
 
         expect(formattedValue).toEqual('0 days 0 hours 0 minutes 5 seconds');
@@ -25,25 +25,25 @@ describe('formatter', () => {
         expect(formattedValue).toEqual('2 days 3 hours 4 minutes 5 seconds');
     });
 
-    it('shows seconds in singular when when there is exactly one second', () => {
+    it('shows seconds in singular when there is exactly one second', () => {
         const formattedValue = new Formatter().format(1);
 
         expect(formattedValue).toEqual('0 days 0 hours 0 minutes 1 second');
     });
 
-    it('shows minutes in singular when when there is exactly one minute', () => {
+    it('shows minutes in singular when there is exactly one minute', () => {
         const formattedValue = new Formatter().format(60);
 
         expect(formattedValue).toEqual('0 days 0 hours 1 minute 0 seconds');
     });
 
-    it('shows hours in singular when when there is exactly one hour', () => {
+    it('shows hours in singular when there is exactly one hour', () => {
         const formattedValue = new Formatter().format(60 * 60);
 
         expect(formattedValue).toEqual('0 days 1 hour 0 minutes 0 seconds');
     });
 
-    it('shows days in singular when when there is exactly one day', () => {
+    it('shows days in singular when there is exactly one day', () => {
         const formattedValue = new Formatter().format(24 * 60 * 60);
 
         expect(formattedValue).toEqual('1 day 0 hours 0 minutes 0 seconds');
