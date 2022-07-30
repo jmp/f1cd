@@ -4,6 +4,6 @@ export class Formatter {
         const hours = Math.floor(totalSeconds % (3600 * 24) / 3600);
         const minutes = Math.floor(totalSeconds % 3600 / 60);
         const seconds = Math.floor(totalSeconds % 60);
-        return `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+        return `${days} days, ${hours} hours, ${minutes} minutes ${seconds} seconds`;
     }
 }
