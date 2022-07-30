@@ -8,4 +8,12 @@ describe('countdown', () => {
         );
         expect(countdown.seconds).toEqual(0);
     });
+
+    it('is the difference in seconds when the dates are different', () => {
+        const countdown = new Countdown(
+            new Date('2022-01-01T00:00:00Z'),
+            new Date('2022-01-01T00:00:42Z')
+        );
+        expect(countdown.seconds).toEqual(42);
+    });
 });
