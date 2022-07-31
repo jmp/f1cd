@@ -1,20 +1,35 @@
 import {Session} from './session';
+import {Round} from './round';
+
+type Data = {
+    title: string;
+    sessions: {
+        title: string;
+        date: string;
+    }[];
+}[];
 
 export class SessionFinder {
-    private readonly sessions: Session[];
+    private readonly rounds: Round[];
 
-    constructor(data: { round: string, title: string, date: string }[]) {
-        this.sessions = data.map(({ date , ...rest}) => ({
+    constructor(data: Data) {
+        this.rounds = data.map(({ title, sessions , ...rest}) => ({
             ...rest,
-            date: new Date(date)
-        }))
+            title,
+            sessions: sessions.map(({ date , ...rest}) => ({
+                ...rest,
+                round: title,
+                date: new Date(date)
+            }))
+        }));
     }
 
     findNext(fromDate: Date): Session {
-        const session = this.sessions.find(session => fromDate.getTime() <= session.date.getTime());
-        if (session) {
-            return session;
+        const nextSession = (session: Session) => fromDate.getTime() <= session.date.getTime();
+        let round = this.rounds.find(({ sessions }) => sessions.find(nextSession));
+        if (!round) {
+            round = this.rounds[this.rounds.length - 1];
         }
-        return this.sessions[this.sessions.length - 1];
+        return round.sessions.find(nextSession) ?? round.sessions[round.sessions.length - 1];
     }
 }

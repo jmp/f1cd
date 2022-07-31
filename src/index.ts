@@ -1,10 +1,10 @@
 import {Countdown} from './countdown';
 import {Formatter} from './formatter';
 import {SessionFinder} from './session-finder';
-import sessions from './data/sessions.json';
+import sessionData from './data/sessions.json';
 
 const formatter = new Formatter();
-const sessionFinder = new SessionFinder(sessions);
+const sessionFinder = new SessionFinder(sessionData);
 
 function updateCountdown() {
     const now = new Date();
