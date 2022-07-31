@@ -8,9 +8,7 @@ describe('index', () => {
         document.body.innerHTML = readFileSync(join(__dirname, '..', 'src', 'html', 'index.html'), 'utf-8')
     });
 
-    afterEach(() => {
-        jest.resetModules();
-    });
+    afterEach(() => jest.resetModules());
 
     it('updates round name', () => {
         const roundEl = document.getElementById('round')!;
