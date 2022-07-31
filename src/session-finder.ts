@@ -1,7 +1,7 @@
 import {Session} from './session';
 
 export class SessionFinder {
-    constructor(private sessions: Session[]) {}
+    constructor(private readonly sessions: Session[]) {}
 
     findNext(fromDate: Date): Session {
         const nextSession = (session: Session) => fromDate.getTime() <= session.date.getTime();
