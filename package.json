@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "jest --coverage",
-    "build": "esbuild src/index.ts --bundle --outdir=dist --minify && cp index.html dist/"
+    "build": "esbuild src/index.ts --bundle --outdir=dist --minify && cp src/html/index.html dist"
   },
   "repository": {
     "type": "git",
