@@ -1,7 +1,7 @@
 import {SessionFinder} from '../src/session-finder';
 
 describe('session finder', () => {
-    it('fetches the next session from the given date', () => {
+    it('finds the next upcoming session', () => {
         const sessionFinder = new SessionFinder([{
             title: 'Test Grand Prix',
             sessions: [{
@@ -25,7 +25,7 @@ describe('session finder', () => {
         })
     });
 
-    it('fetches the last session if there are no upcoming sessions', () => {
+    it('finds the last session when there are no upcoming sessions', () => {
         const sessionFinder = new SessionFinder([{
             title: 'Test Grand Prix',
             sessions: [{
