@@ -10,7 +10,7 @@ export class SessionFinder {
         }))
     }
 
-    findNext(fromDate: Date): Session | undefined {
+    findNext(fromDate: Date): Session {
         const session = this.sessions.find(session => fromDate.getTime() <= session.date.getTime());
         if (session) {
             return session;

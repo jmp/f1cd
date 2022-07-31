@@ -8,7 +8,7 @@ const sessionFinder = new SessionFinder(sessions);
 
 function updateCountdown() {
     const now = new Date();
-    const session = sessionFinder.findNext(now)!;
+    const session = sessionFinder.findNext(now);
     const countdown = new Countdown(now, session.date, formatter);
     document.getElementById('round')!.innerHTML = session.round;
     document.getElementById('session')!.innerHTML = session.title;
