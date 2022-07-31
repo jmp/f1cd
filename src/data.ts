@@ -4,4 +4,4 @@ export type Data = {
         title: string;
         date: string;
     }[];
-}[]
+}[];
