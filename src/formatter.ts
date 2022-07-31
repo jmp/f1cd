@@ -5,11 +5,17 @@ export class Formatter {
         const minutes = Math.floor(totalSeconds % 3600 / 60);
         const seconds = Math.floor(totalSeconds % 60);
 
-        return [
-            days, days === 1 ? 'day' : 'days',
-            hours, hours === 1 ? 'hour' : 'hours',
-            minutes, minutes === 1 ? 'minute' : 'minutes',
-            seconds, seconds === 1 ? 'second' : 'seconds'
-        ].join(' ');
+        let result = '';
+        if (days > 0) {
+            result += `${days} ${days === 1 ? 'day' : 'days'} `
+        }
+        if (result || hours > 0) {
+            result += `${hours} ${hours === 1 ? 'hour' : 'hours'} `
+        }
+        if (result || minutes > 0) {
+            result += `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} `
+        }
+        result += `${seconds} ${seconds === 1 ? 'second' : 'seconds'}`;
+        return result;
     }
 }
