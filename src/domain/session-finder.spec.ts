@@ -1,4 +1,4 @@
-import {SessionFinder} from '../src/session-finder';
+import {SessionFinder} from './session-finder';
 
 describe('session finder', () => {
     it('finds the next upcoming session', () => {

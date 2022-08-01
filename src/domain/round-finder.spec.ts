@@ -1,4 +1,4 @@
-import {RoundFinder} from '../src/round-finder';
+import {RoundFinder} from './round-finder';
 
 describe('round finder', () => {
     it('finds the next upcoming round', () => {

@@ -1,5 +1,5 @@
-import {Countdown} from '../src/countdown';
-import {Formatter} from '../src/formatter';
+import {Countdown} from './countdown';
+import {Formatter} from './formatter';
 
 describe('countdown', () => {
     const secondsFormatter: Formatter = {

@@ -1,4 +1,4 @@
-import {Formatter} from '../src/formatter';
+import {Formatter} from './formatter';
 
 describe('formatter', () => {
     it('shows seconds when the input is less than a minute', () => {
