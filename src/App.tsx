@@ -9,7 +9,7 @@ const now = new Date();
 const formatter = new Formatter();
 const round = new RoundFinder(data).findNext(now);
 const session = new SessionFinder(round.sessions).findNext(now);
-const createCountdown = () => new Countdown(now, session.date, formatter);
+const createCountdown = () => new Countdown(new Date(), session.date, formatter);
 
 function App() {
   const [countdown, setCountdown] = useState(createCountdown());
