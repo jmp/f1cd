@@ -5,12 +5,13 @@ import {SessionFinder} from './domain/session-finder';
 import {RoundFinder} from './domain/round-finder';
 import data from './data/sessions.json';
 
+const now = new Date();
 const formatter = new Formatter();
 const roundFinder = new RoundFinder(data);
-const round = roundFinder.findNext(new Date());
+const round = roundFinder.findNext(now);
 const sessionFinder = new SessionFinder(round.sessions);
-const session = sessionFinder.findNext(new Date());
-const createCountdown = () => new Countdown(new Date(), session.date, formatter);
+const session = sessionFinder.findNext(now);
+const createCountdown = () => new Countdown(now, session.date, formatter);
 
 function App() {
   const [countdown, setCountdown] = useState(createCountdown());
