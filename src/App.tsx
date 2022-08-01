@@ -7,10 +7,8 @@ import data from './data/sessions.json';
 
 const now = new Date();
 const formatter = new Formatter();
-const roundFinder = new RoundFinder(data);
-const round = roundFinder.findNext(now);
-const sessionFinder = new SessionFinder(round.sessions);
-const session = sessionFinder.findNext(now);
+const round = new RoundFinder(data).findNext(now);
+const session = new SessionFinder(round.sessions).findNext(now);
 const createCountdown = () => new Countdown(now, session.date, formatter);
 
 function App() {
