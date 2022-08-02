@@ -1,4 +1,4 @@
 .idea
 coverage
-dist
+build
 node_modules
