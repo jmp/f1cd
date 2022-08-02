@@ -3,11 +3,13 @@ import {Countdown} from './domain/countdown';
 import {Formatter} from './domain/formatter';
 import {SessionFinder} from './domain/session-finder';
 import {RoundFinder} from './domain/round-finder';
-import data from './data/sessions.json';
+import {mapSessionDataToRounds} from './data/session-data-mapping';
+import sessionData from './data/sessions.json';
 
 const now = new Date();
 const formatter = new Formatter();
-const round = new RoundFinder(data).findNext(now);
+const rounds = mapSessionDataToRounds(sessionData);
+const round = new RoundFinder(rounds).findNext(now);
 const session = new SessionFinder(round.sessions).findNext(now);
 const createCountdown = () => new Countdown(new Date(), session.date, formatter);
 

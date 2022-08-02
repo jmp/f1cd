@@ -6,19 +6,19 @@ describe('round finder', () => {
             title: 'Wrong round',
             sessions: [{
                 title: 'Wrong session',
-                date: '2022-01-01T12:00:00Z'
+                date: new Date('2022-01-01T12:00:00Z')
             }]
         }, {
             title: 'Correct round',
             sessions: [{
                 title: 'Correct session',
-                date: '2022-01-07T12:00:00Z'
+                date: new Date('2022-01-07T12:00:00Z')
             }]
         }, {
             title: 'Wrong round',
             sessions: [{
                 title: 'Wrong session',
-                date: '2022-01-14T12:00:00Z'
+                date: new Date('2022-01-14T12:00:00Z')
             }]
         }]);
 
@@ -39,13 +39,13 @@ describe('round finder', () => {
             title: 'Wrong round',
             sessions: [{
                 title: 'Wrong session',
-                date: '2022-01-01T12:00:00Z'
+                date: new Date('2022-01-01T12:00:00Z')
             }]
         }, {
             title: 'Correct round',
             sessions: [{
                 title: 'Correct session',
-                date: '2022-01-07T12:00:00Z'
+                date: new Date('2022-01-07T12:00:00Z')
             }]
         }]);
         const fromDate = new Date('2022-01-14T12:00:00Z');
