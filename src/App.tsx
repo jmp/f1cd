@@ -16,7 +16,7 @@ function App() {
     useEffect(() => {
         const interval = setInterval(() => setCountdown(createCountdown()), 1000);
         return () => clearInterval(interval);
-    }, []);
+    }, [createCountdown]);
 
     return (
         <div>
