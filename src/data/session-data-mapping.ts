@@ -1,5 +1,5 @@
-import {SessionData} from "./session-data";
-import {Round} from "../domain/round";
+import {SessionData} from './session-data';
+import {Round} from '../domain/round';
 
 export function mapSessionDataToRounds(sessionData: SessionData): Round[] {
     return sessionData.map(({title, sessions, ...rest}) => ({

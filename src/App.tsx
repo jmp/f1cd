@@ -3,7 +3,7 @@ import {Countdown} from './domain/countdown';
 import {Formatter} from './domain/formatter';
 import {mapSessionDataToRounds} from './data/session-data-mapping';
 import sessionData from './data/sessions.json';
-import {FindNextSession} from "./domain/use-cases/find-next-session";
+import {FindNextSession} from './domain/use-cases/find-next-session';
 
 function App() {
     const now = new Date();
@@ -21,9 +21,9 @@ function App() {
     return (
         <div>
             <h1>Countdown</h1>
-            <h2 data-testid="round">{nextSession.roundTitle}</h2>
-            <p><b data-testid="session">{nextSession.sessionTitle}</b> starts in <b data-testid="countdown">{countdown.format()}</b>.</p>
-            <p><a href="https://github.com/jmp/f1cd">View the source on GitHub</a></p>
+            <h2 data-testid='round'>{nextSession.roundTitle}</h2>
+            <p><b data-testid='session'>{nextSession.sessionTitle}</b> starts in <b data-testid='countdown'>{countdown.format()}</b>.</p>
+            <p><a href='https://github.com/jmp/f1cd'>View the source on GitHub</a></p>
         </div>
     );
 }
