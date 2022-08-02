@@ -1,3 +1,5 @@
+import {Round} from '../domain/round';
+
 export type SessionData = {
     title: string;
     sessions: {
@@ -5,3 +7,14 @@ export type SessionData = {
         date: string;
     }[];
 }[];
+
+export function mapSessionDataToRounds(sessionData: SessionData): Round[] {
+    return sessionData.map(({title, sessions, ...rest}) => ({
+        ...rest,
+        title,
+        sessions: sessions.map(({date, ...rest}) => ({
+            ...rest,
+            date: new Date(date)
+        }))
+    }));
+}

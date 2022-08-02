@@ -1,5 +1,4 @@
-import {SessionData} from './session-data';
-import {mapSessionDataToRounds} from './session-data-mapping';
+import {mapSessionDataToRounds, SessionData} from './session-data';
 
 describe('session data mapping', () => {
     it('raw session data is mapped to a list of rounds', () => {

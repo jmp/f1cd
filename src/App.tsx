@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Countdown} from './domain/countdown';
 import {Formatter} from './domain/formatter';
-import {mapSessionDataToRounds} from './data/session-data-mapping';
 import sessionData from './data/sessions.json';
 import {FindNextSession} from './domain/use-cases/find-next-session';
+import {mapSessionDataToRounds} from './data/session-data';
 
 function App() {
     const now = new Date();
