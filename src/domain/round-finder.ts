@@ -1,11 +1,11 @@
 import {Round} from './round';
-import {Data} from './data';
+import {SessionData} from '../data/session-data';
 import {Session} from './session';
 
 export class RoundFinder {
     private readonly rounds: Round[];
 
-    constructor(data: Data) {
+    constructor(data: SessionData) {
         this.rounds = data.map(({title, sessions, ...rest}) => ({
             ...rest,
             title,
