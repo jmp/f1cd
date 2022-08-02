@@ -1,16 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Countdown} from './domain/countdown';
 import {Formatter} from './domain/formatter';
-import sessionData from './data/sessions.json';
+import {rounds} from './data/session-data';
 import {FindNextSession} from './domain/use-cases/find-next-session';
-import {mapSessionDataToRounds} from './data/session-data';
 
 function App() {
-    const now = new Date();
-    const formatter = new Formatter();
-    const rounds = mapSessionDataToRounds(sessionData);
-    const nextSession = new FindNextSession(rounds).findNextSession(now);
-    const createCountdown = () => new Countdown(new Date(), nextSession.date, formatter);
+    const nextSession = new FindNextSession(rounds).findNextSession(new Date());
+    const createCountdown = () => new Countdown(new Date(), nextSession.date, new Formatter());
     const [countdown, setCountdown] = useState(createCountdown());
 
     useEffect(() => {

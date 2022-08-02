@@ -1,4 +1,5 @@
 import {Round} from '../domain/round';
+import sessionData from './sessions.json';
 
 export type SessionData = {
     title: string;
@@ -18,3 +19,5 @@ export function mapSessionDataToRounds(sessionData: SessionData): Round[] {
         }))
     }));
 }
+
+export const rounds = mapSessionDataToRounds(sessionData);
