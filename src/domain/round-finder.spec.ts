@@ -31,7 +31,7 @@ describe('round finder', () => {
                 title: 'Correct session',
                 date: new Date('2022-01-07T12:00:00Z')
             }]
-        })
+        });
     });
 
     it('finds the last round when there are no upcoming rounds', () => {
@@ -57,6 +57,6 @@ describe('round finder', () => {
                 title: 'Correct session',
                 date: new Date('2022-01-07T12:00:00Z')
             }]
-        })
+        });
     });
 });
