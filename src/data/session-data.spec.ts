@@ -4,6 +4,7 @@ describe('session data mapping', () => {
     it('raw session data is mapped to a list of rounds', () => {
         const sessionData: SessionData = [{
             title: 'Hungary',
+            startDate: '2022-07-29T12:00:00Z',
             sessions: [
                 { title: 'Practice 1', date: '2022-07-29T12:00:00Z' },
                 { title: 'Practice 2', date: '2022-07-29T15:00:00Z' },
@@ -17,6 +18,7 @@ describe('session data mapping', () => {
 
         expect(rounds).toEqual([{
             title: 'Hungary',
+            startDate: new Date('2022-07-29T12:00:00Z'),
             sessions: [
                 { title: 'Practice 1', date: new Date('2022-07-29T12:00:00Z') },
                 { title: 'Practice 2', date: new Date('2022-07-29T15:00:00Z') },

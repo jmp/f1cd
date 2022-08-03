@@ -3,6 +3,7 @@ import sessionData from './sessions.json';
 
 export type SessionData = {
     title: string;
+    startDate: string;
     sessions: {
         title: string;
         date: string;
@@ -10,9 +11,9 @@ export type SessionData = {
 }[];
 
 export function mapSessionDataToRounds(sessionData: SessionData): Round[] {
-    return sessionData.map(({title, sessions, ...rest}) => ({
+    return sessionData.map(({startDate, sessions, ...rest}) => ({
         ...rest,
-        title,
+        startDate: new Date(startDate),
         sessions: sessions.map(({date, ...rest}) => ({
             ...rest,
             date: new Date(date)

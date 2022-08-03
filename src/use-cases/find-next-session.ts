@@ -21,13 +21,14 @@ export class FindNextSession {
     }
 
     private findNextRound(fromDate: Date): Round {
-        const nextSession = (session: Session) => fromDate.getTime() <= session.date.getTime();
-        const nextRound = (round: Round) => round.sessions.find(nextSession);
-        return this.rounds.find(nextRound) ?? this.rounds[this.rounds.length - 1];
+        return this.rounds.find(
+            ({startDate}) => fromDate.getTime() <= startDate.getTime()
+        ) ?? this.rounds.at(-1)!;
     }
 
     private findNextSessionInRound(fromDate: Date, round: Round): Session {
-        const nextSession = (session: Session) => fromDate.getTime() <= session.date.getTime();
-        return round.sessions.find(nextSession) ?? round.sessions[round.sessions.length - 1];
+        return round.sessions.find(
+            ({date}) => fromDate.getTime() <= date.getTime()
+        ) ?? round.sessions.at(-1)!;
     }
 }
