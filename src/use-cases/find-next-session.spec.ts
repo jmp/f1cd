@@ -1,5 +1,5 @@
 import {FindNextSession} from './find-next-session';
-import {Round} from '../round';
+import {Round} from '../models/round';
 
 describe('find next session', () => {
     it('finds details for the next upcoming session', () => {

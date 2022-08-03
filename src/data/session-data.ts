@@ -1,4 +1,4 @@
-import {Round} from '../domain/round';
+import {Round} from '../models/round';
 import sessionData from './sessions.json';
 
 export type SessionData = {

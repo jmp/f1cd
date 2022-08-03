@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {rounds} from './data/session-data';
-import {FindNextSession} from './domain/use-cases/find-next-session';
-import {GetRemainingTime} from './domain/use-cases/get-remaining-time';
+import {FindNextSession} from './use-cases/find-next-session';
+import {GetRemainingTime} from './use-cases/get-remaining-time';
 
 function App() {
     const nextSession = new FindNextSession(rounds).findNextSession(new Date());

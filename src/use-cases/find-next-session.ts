@@ -1,5 +1,5 @@
-import {Round} from '../round';
-import {Session} from '../session';
+import {Round} from '../models/round';
+import {Session} from '../models/session';
 
 export type NextSession = {
     roundTitle: string;
