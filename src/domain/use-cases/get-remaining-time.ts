@@ -1,5 +1,14 @@
-export class Formatter {
-    format(totalSeconds: number): string {
+export class GetRemainingTime {
+    getRemainingTime(from: Date, to: Date): string {
+        const seconds = this.calculateDifferenceInSeconds(from, to);
+        return this.format(seconds);
+    }
+
+    private calculateDifferenceInSeconds(from: Date, to: Date): number {
+        return Math.max(0, to.getTime() - from.getTime()) / 1000
+    }
+
+    private format(totalSeconds: number): string {
         const days = Math.floor(totalSeconds / (3600 * 24));
         const hours = Math.floor(totalSeconds % (3600 * 24) / 3600);
         const minutes = Math.floor(totalSeconds % 3600 / 60);
