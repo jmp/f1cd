@@ -23,9 +23,9 @@ function App({ rounds }: { rounds: Round[] }) {
             <h3>Sessions</h3>
             <ul>
             {
-                nextRound.sessions.map(({title, date}) => {
-                    return <li key={date.getTime()}>{date.toISOString().slice(0, 16).replace('T', ' ')}Z &ndash; {title}</li>;
-                })
+                nextRound.sessions.map(({title, date}) => (
+                    <li key={date.getTime()}>{date.toISOString().slice(0, 16).replace('T', ' ')}Z &ndash; {title}</li>
+                ))
             }
             </ul>
             <p><b data-testid='session'>{nextSession.title}</b> starts in <b data-testid='countdown'>{remainingTime}</b>.</p>
