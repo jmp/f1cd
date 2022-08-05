@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {rounds} from './data/session-data';
 import {FindNextSession} from './use-cases/find-next-session';
 import {GetRemainingTime} from './use-cases/get-remaining-time';
 import {FindNextRound} from './use-cases/find-next-round';
+import {Round} from './models/round';
 
-function App() {
+function App({ rounds }: { rounds: Round[] }) {
     const now = new Date();
     const nextRound = new FindNextRound(rounds).findNextRound(now);
     const nextSession = new FindNextSession(nextRound).findNextSession(now);
