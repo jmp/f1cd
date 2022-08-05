@@ -22,8 +22,7 @@ describe('find next session', () => {
         const nextSession = useCase.findNextSession(new Date('2022-01-05T12:00:00Z'));
 
         expect(nextSession).toEqual({
-            roundTitle: 'Test round',
-            sessionTitle: 'Correct session',
+            title: 'Correct session',
             date: new Date('2022-01-07T12:00:00Z')
         });
     });
@@ -45,8 +44,7 @@ describe('find next session', () => {
         const nextSession = useCase.findNextSession(new Date('2022-01-14T12:00:00Z'));
 
         expect(nextSession).toEqual({
-            roundTitle: 'Test round',
-            sessionTitle: 'Correct session',
+            title: 'Correct session',
             date: new Date('2022-01-07T12:00:00Z')
         });
     });

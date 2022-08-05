@@ -19,8 +19,8 @@ function App() {
     return (
         <div>
             <h1>Countdown</h1>
-            <h2 data-testid='round'>{nextSession.roundTitle}</h2>
-            <p><b data-testid='session'>{nextSession.sessionTitle}</b> starts in <b data-testid='countdown'>{remainingTime}</b>.</p>
+            <h2 data-testid='round'>{nextRound.title}</h2>
+            <p><b data-testid='session'>{nextSession.title}</b> starts in <b data-testid='countdown'>{remainingTime}</b>.</p>
             <p><a href='https://github.com/jmp/f1cd'>View the source on GitHub</a></p>
         </div>
     );

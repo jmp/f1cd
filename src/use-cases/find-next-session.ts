@@ -1,21 +1,15 @@
 import {Round} from '../models/round';
-
-export type NextSession = {
-    roundTitle: string;
-    sessionTitle: string;
-    date: Date;
-};
+import {Session} from '../models/session';
 
 export class FindNextSession {
     constructor(private readonly round: Round) {}
 
-    findNextSession(fromDate: Date): NextSession {
+    findNextSession(fromDate: Date): Session {
         const session = this.round.sessions.find(
             ({date}) => fromDate.getTime() <= date.getTime()
         ) ?? this.round.sessions.at(-1)!;
         return {
-            roundTitle: this.round.title,
-            sessionTitle: session.title,
+            title: session.title,
             date: session.date
         };
     }
