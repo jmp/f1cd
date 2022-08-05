@@ -24,7 +24,7 @@ function App({ rounds }: { rounds: Round[] }) {
             <ul>
             {
                 nextRound.sessions.map(({title, date}) => (
-                    <li key={date.getTime()}>{date.toISOString().slice(0, 16).replace('T', ' ')}Z &ndash; {title}</li>
+                    <li key={date.getTime()}>{date.toISOString().slice(0, 16).replace('T', ' ')} UTC &ndash; {title}</li>
                 ))
             }
             </ul>
