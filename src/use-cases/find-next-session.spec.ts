@@ -36,7 +36,7 @@ describe('find next session', () => {
         });
     });
 
-    it('finds details for the last round when there are no upcoming rounds', () => {
+    it('finds details for the last session when there are no upcoming sessions', () => {
         const rounds: Round[] = [{
             title: 'Wrong round',
             startDate: new Date('2022-01-01T12:00:00Z'),
