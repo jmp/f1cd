@@ -2,9 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {rounds} from './data/session-data';
 import {FindNextSession} from './use-cases/find-next-session';
 import {GetRemainingTime} from './use-cases/get-remaining-time';
+import {FindNextRound} from './use-cases/find-next-round';
 
 function App() {
-    const nextSession = new FindNextSession(rounds).findNextSession(new Date());
+    const now = new Date();
+    const nextRound = new FindNextRound(rounds).findNextRound(now);
+    const nextSession = new FindNextSession(nextRound).findNextSession(now);
     const getRemainingTime = new GetRemainingTime();
     const [remainingTime, setRemainingTime] = useState(getRemainingTime.getRemainingTime(new Date(), nextSession.date));
 
