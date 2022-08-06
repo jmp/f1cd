@@ -17,31 +17,6 @@ describe('App', () => {
             date: new Date('2022-01-14T12:00:00Z')
         }]
     }];
-    const getDate = () => new Date('2022-01-05T12:00:00Z')
-
-    it('renders round name', () => {
-        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
-
-        const element = screen.getByTestId('round');
-
-        expect(element).toHaveTextContent('Test round');
-    });
-
-    it('renders session name', () => {
-        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
-
-        const element = screen.getByTestId('session');
-
-        expect(element).toHaveTextContent('Second session');
-    });
-
-    it('renders countdown', () => {
-        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
-
-        const element = screen.getByTestId('countdown');
-
-        expect(element).toHaveTextContent(/(((\d+ days? )?\d+ hours? )?\d+ minutes? )?\d+ seconds?/);
-    });
 
     it('updates countdown', async () => {
         const mockGetDate = jest.fn().mockReturnValue(new Date('2022-01-06T09:56:56Z'));
