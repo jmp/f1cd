@@ -26,3 +26,19 @@ td {
 #tzinfo {
     font-size: small;
 }
+
+footer {
+    padding-top: 1em;
+}
+
+footer ul {
+    list-style: none;
+    font-size: small;
+    margin: 0;
+    padding: 0;
+}
+
+footer li {
+    display: inline;
+    margin-right: 0.8em;
+}

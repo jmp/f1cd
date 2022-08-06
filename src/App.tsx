@@ -54,7 +54,12 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
             <p id='tzinfo'>All times are UTC{new Date().toString().match(/([-+][0-9]+)\s/)![1]}</p>
             <h3>Next Session</h3>
             <p><span data-testid='session'>{nextSession.title}</span> starts in <span data-testid='countdown'>{remainingTime}</span>.</p>
-            <p><a href='https://github.com/jmp/f1cd'>View the source on GitHub</a></p>
+            <footer>
+                <ul>
+                    <li><a href='https://github.com/jmp/f1cd'>Source</a></li>
+                    <li><a href='https://github.com/jmp/f1cd/issues'>Bugs</a></li>
+                </ul>
+            </footer>
         </div>
     );
 }
