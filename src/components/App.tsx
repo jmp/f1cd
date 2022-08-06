@@ -1,9 +1,9 @@
 import React, {ReactElement, useEffect, useState} from 'react';
-import {FindNextSession} from './use-cases/find-next-session';
-import {GetRemainingTime} from './use-cases/get-remaining-time';
-import {FindNextRound} from './use-cases/find-next-round';
-import {Round} from './models/round';
-import {Session} from './models/session';
+import {FindNextSession} from '../use-cases/find-next-session';
+import {GetRemainingTime} from '../use-cases/get-remaining-time';
+import {FindNextRound} from '../use-cases/find-next-round';
+import {Round} from '../models/round';
+import {Session} from '../models/session';
 import './App.css';
 
 type AppProps = {
