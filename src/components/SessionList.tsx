@@ -4,11 +4,11 @@ import {FindNextSession} from '../use-cases/find-next-session';
 
 type SessionProps = {
     sessions: Session[];
-    getDate: () => Date;
+    date: Date;
 }
 
-export function SessionList({ sessions, getDate }: SessionProps) {
-    const nextSession = new FindNextSession(sessions).findNextSession(getDate());
+export function SessionList({ sessions, date }: SessionProps) {
+    const nextSession = new FindNextSession(sessions).findNextSession(date);
     const sessionsBefore = sessions.filter(({date}) => date.getTime() < nextSession.date.getTime());
     const sessionsAfter = sessions.filter(({date}) => date.getTime() >= nextSession.date.getTime());
     return <>

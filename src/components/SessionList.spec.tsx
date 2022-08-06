@@ -14,7 +14,7 @@ describe('session list', () => {
                 date: new Date('2022-01-07T12:00:00Z')
             }
         ];
-        render(<SessionList sessions={sessions} getDate={() => new Date()} />);
+        render(<SessionList sessions={sessions} date={new Date('2022-01-01T06:00:00Z')} />);
 
         expect(screen.getByText('First session')).toBeInTheDocument();
         expect(screen.getByText('Second session')).toBeInTheDocument();

@@ -28,7 +28,7 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
         <div>
             <h1>Countdown</h1>
             <h2 data-testid='round'>{nextRound.title}</h2>
-            <SessionList sessions={nextRound.sessions} getDate={getDate} />
+            <SessionList sessions={nextRound.sessions} date={getDate()} />
             <h3>Next Session</h3>
             <p><span data-testid='session'>{nextSession.title}</span> starts in <span data-testid='countdown'>{remainingTime}</span>.</p>
             <Footer />
