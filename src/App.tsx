@@ -53,7 +53,7 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
             </table>
             <p>Times are UTC.</p>
             <h3>Next Session</h3>
-            <p><b data-testid='session'>{nextSession.title}</b> starts in <b data-testid='countdown'>{remainingTime}</b>.</p>
+            <p><span data-testid='session'>{nextSession.title}</span> starts in <span data-testid='countdown'>{remainingTime}</span>.</p>
             <p><a href='https://github.com/jmp/f1cd'>View the source on GitHub</a></p>
         </div>
     );
