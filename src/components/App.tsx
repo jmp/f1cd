@@ -14,10 +14,9 @@ type AppProps = {
 }
 
 function App({ rounds, getDate, updateInterval }: AppProps) {
-    const currentDate = getDate();
-    const nextRound = new FindNextRound(rounds).findNextRound(currentDate);
-    const nextSession = new FindNextSession(nextRound.sessions).findNextSession(currentDate);
-    const [date, setDate] = useState(currentDate);
+    const [date, setDate] = useState(getDate());
+    const nextRound = new FindNextRound(rounds).findNextRound(date);
+    const nextSession = new FindNextSession(nextRound.sessions).findNextSession(date);
 
     useEffect(() => {
         const interval = setInterval(() => setDate(getDate()), updateInterval);
