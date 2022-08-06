@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {FindNextSession} from '../use-cases/find-next-session';
-import {GetRemainingTime} from '../use-cases/get-remaining-time';
 import {FindNextRound} from '../use-cases/find-next-round';
 import {Round} from '../models/round';
 import {Footer} from './Footer';
 import {SessionList} from './SessionList';
+import {Countdown} from './Countdown';
 import './App.css';
 
 type AppProps = {
@@ -14,13 +14,13 @@ type AppProps = {
 }
 
 function App({ rounds, getDate, updateInterval }: AppProps) {
-    const nextRound = new FindNextRound(rounds).findNextRound(getDate());
-    const nextSession = new FindNextSession(nextRound.sessions).findNextSession(getDate());
-    const getRemainingTime = new GetRemainingTime();
-    const [remainingTime, setRemainingTime] = useState(getRemainingTime.getRemainingTime(getDate(), nextSession.date));
+    const currentDate = getDate();
+    const nextRound = new FindNextRound(rounds).findNextRound(currentDate);
+    const nextSession = new FindNextSession(nextRound.sessions).findNextSession(currentDate);
+    const [date, setDate] = useState(currentDate);
 
     useEffect(() => {
-        const interval = setInterval(() => setRemainingTime(getRemainingTime.getRemainingTime(getDate(), nextSession.date)), updateInterval);
+        const interval = setInterval(() => setDate(getDate()), updateInterval);
         return () => clearInterval(interval);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -29,8 +29,7 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
             <h1>Countdown</h1>
             <h2 data-testid='round'>{nextRound.title}</h2>
             <SessionList sessions={nextRound.sessions} date={getDate()} />
-            <h3>Next Session</h3>
-            <p><span data-testid='session'>{nextSession.title}</span> starts in <span data-testid='countdown'>{remainingTime}</span>.</p>
+            <Countdown session={nextSession} date={date} />
             <Footer />
         </div>
     );
