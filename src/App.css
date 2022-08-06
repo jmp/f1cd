@@ -22,3 +22,7 @@ td {
     opacity: 50%;
     text-decoration: line-through;
 }
+
+#tzinfo {
+    font-size: small;
+}
