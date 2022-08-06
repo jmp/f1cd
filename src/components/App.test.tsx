@@ -57,14 +57,4 @@ describe('App', () => {
             expect(element).not.toHaveTextContent(previousContent);
         });
     });
-
-    it('renders all sessions for the round', () => {
-        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
-
-        const sessions = screen.getByTestId('sessions');
-
-        expect(sessions).toHaveTextContent('First session');
-        expect(sessions).toHaveTextContent('Second session');
-        expect(sessions).toHaveTextContent('Third session');
-    });
 });
