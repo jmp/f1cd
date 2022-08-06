@@ -39,6 +39,7 @@ function App({ rounds, getDate }: AppProps) {
                     ))
                 }
             </ul>
+            <h3>Next Session</h3>
             <p><b data-testid='session'>{nextSession.title}</b> starts in <b data-testid='countdown'>{remainingTime}</b>.</p>
             <p><a href='https://github.com/jmp/f1cd'>View the source on GitHub</a></p>
         </div>
