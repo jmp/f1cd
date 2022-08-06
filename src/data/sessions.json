@@ -206,5 +206,31 @@
         "date": "2022-10-30T20:00:00Z"
       }
     ]
+  },
+  {
+    "title": "Brazil",
+    "startDate": "2022-11-11T15:30:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-11-11T15:30:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-11-11T19:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-11-12T15:30:00Z"
+      },
+      {
+        "title": "Sprint",
+        "date": "2022-11-12T19:30:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-11-33T18:00:00Z"
+      }
+    ]
   }
 ]
