@@ -1,0 +1,15 @@
+a:link {
+    color: #99f;
+}
+
+a:active {
+    color: #f88;
+}
+
+a:visited {
+    color: #b9c;
+}
+
+body {
+    font: 12pt 'Helvetica Neue', 'Arial', sans-serif;
+}

@@ -3,6 +3,7 @@ import {FindNextSession} from './use-cases/find-next-session';
 import {GetRemainingTime} from './use-cases/get-remaining-time';
 import {FindNextRound} from './use-cases/find-next-round';
 import {Round} from './models/round';
+import './App.css';
 
 type AppProps = {
     rounds: Round[],
