@@ -154,5 +154,31 @@
         "date": "2022-10-09T05:00:00Z"
       }
     ]
+  },
+  {
+    "title": "United States",
+    "startDate": "2022-10-21T19:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-10-21T19:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-10-21T22:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-10-22T19:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-10-22T22:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-10-23T19:00:00Z"
+      }
+    ]
   }
 ]
