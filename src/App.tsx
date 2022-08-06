@@ -29,18 +29,28 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
             <h1>Countdown</h1>
             <h2 data-testid='round'>{nextRound.title}</h2>
             <h3>Sessions</h3>
-            <ul>
+            <table data-testid='sessions'>
+                <tbody>
                 {
                     sessionsBefore.map(({title, date}) => (
-                        <li key={date.getTime()}><del>{date.toISOString().slice(0, 16).replace('T', ' ')} UTC &ndash; {title}</del></li>
+                        <tr key={date.getTime()} className='before'>
+                            <td>{title}</td>
+                            <td>{date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
+                            <td>{date.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })}</td>
+                        </tr>
                     ))
                 }
                 {
                     sessionsAfter.map(({title, date}) => (
-                        <li key={date.getTime()}>{date.toISOString().slice(0, 16).replace('T', ' ')} UTC &ndash; {title}</li>
+                        <tr key={date.getTime()} className='after'>
+                            <td>{title}</td>
+                            <td>{date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
+                            <td>{date.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })}</td>
+                        </tr>
                     ))
                 }
-            </ul>
+                </tbody>
+            </table>
             <h3>Next Session</h3>
             <p><b data-testid='session'>{nextSession.title}</b> starts in <b data-testid='countdown'>{remainingTime}</b>.</p>
             <p><a href='https://github.com/jmp/f1cd'>View the source on GitHub</a></p>

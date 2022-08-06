@@ -61,24 +61,10 @@ describe('App', () => {
     it('renders all sessions for the round', () => {
         render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
 
-        expect(screen.getByText(/2022-01-01 12:00 UTC – First session/)).toBeVisible();
-        expect(screen.getByText(/2022-01-07 12:00 UTC – Second session/)).toBeVisible();
-        expect(screen.getByText(/2022-01-14 12:00 UTC – Third session/)).toBeVisible();
-    });
+        const sessions = screen.getByTestId('sessions');
 
-    it('renders past sessions with strikethrough', () => {
-        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
-
-        expect(screen.getByText(/2022-01-01 12:00 UTC – First session/))
-            .toContainHTML('<del>2022-01-01 12:00 UTC – First session</del>');
-    });
-
-    it('renders upcoming sessions without strikethrough', () => {
-        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
-
-        expect(screen.getByText(/2022-01-07 12:00 UTC – Second session/))
-            .not.toContainHTML('<del>2022-01-07 12:00 UTC – Second session</del>');
-        expect(screen.getByText(/2022-01-14 12:00 UTC – Third session/))
-            .not.toContainHTML('<del>2022-01-14 12:00 UTC – Third session</del>');
+        expect(sessions).toHaveTextContent('First session');
+        expect(sessions).toHaveTextContent('Second session');
+        expect(sessions).toHaveTextContent('Third session');
     });
 });
