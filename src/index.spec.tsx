@@ -3,7 +3,7 @@ import App from './App';
 import React from 'react';
 
 describe('index', () => {
-    let mockRender: Renderer;
+    let mockRender: jest.Mock<Renderer>;
 
     beforeEach(() => {
         mockRender = jest.fn();
@@ -12,7 +12,9 @@ describe('index', () => {
         }));
     });
 
-    test('renders the App', () => {
+    afterEach(() => jest.resetModules());
+
+    it('renders the App', () => {
         const root = document.createElement('div');
         root.id = 'root';
         document.body.appendChild(root);
@@ -24,5 +26,30 @@ describe('index', () => {
                 <App rounds={expect.anything()} getDate={expect.anything()} />
             </React.StrictMode>
         );
+    });
+
+    it('renders the App with a valid date provider', () => {
+        const root = document.createElement('div');
+        root.id = 'root';
+        document.body.appendChild(root);
+
+        require('./index.tsx');
+
+        const { getDate } = mockRender.mock.calls[0][0].props.children.props;
+
+        expect(getDate()).toBeInstanceOf(Date);
+    });
+
+    it('renders the App with valid rounds', () => {
+        const root = document.createElement('div');
+        root.id = 'root';
+        document.body.appendChild(root);
+
+        require('./index.tsx');
+
+        const { rounds } = mockRender.mock.calls[0][0].props.children.props;
+
+        expect(rounds).toBeInstanceOf(Array);
+        expect(rounds.length).toBeGreaterThan(0);
     });
 });
