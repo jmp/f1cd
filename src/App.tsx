@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {ReactElement, useEffect, useState} from 'react';
 import {FindNextSession} from './use-cases/find-next-session';
 import {GetRemainingTime} from './use-cases/get-remaining-time';
 import {FindNextRound} from './use-cases/find-next-round';
 import {Round} from './models/round';
+import {Session} from './models/session';
 import './App.css';
 
 type AppProps = {
@@ -31,24 +32,8 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
             <h3>Sessions</h3>
             <table data-testid='sessions'>
                 <tbody>
-                {
-                    sessionsBefore.map(({title, date}) => (
-                        <tr key={date.getTime()} className='before'>
-                            <td>{title}</td>
-                            <td>{formatDate(date)}</td>
-                            <td>{formatTime(date)}</td>
-                        </tr>
-                    ))
-                }
-                {
-                    sessionsAfter.map(({title, date}) => (
-                        <tr key={date.getTime()} className='after'>
-                            <td>{title}</td>
-                            <td>{formatDate(date)}</td>
-                            <td>{formatTime(date)}</td>
-                        </tr>
-                    ))
-                }
+                    { formatSessions(sessionsBefore, 'before') }
+                    { formatSessions(sessionsAfter, 'after') }
                 </tbody>
             </table>
             <p id='tzinfo'>All times are {getTimezone()}</p>
@@ -62,6 +47,16 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
             </footer>
         </div>
     );
+}
+
+function formatSessions(sessions: Session[], className: string): ReactElement[] {
+    return sessions.map(({title, date}) => (
+        <tr key={date.getTime()} className={className}>
+            <td>{title}</td>
+            <td>{formatDate(date)}</td>
+            <td>{formatTime(date)}</td>
+        </tr>
+    ))
 }
 
 function formatDate(date: Date): string {
