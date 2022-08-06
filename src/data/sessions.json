@@ -102,5 +102,31 @@
         "date": "2022-09-11T13:00:00Z"
       }
     ]
+  },
+  {
+    "title": "Singapore",
+    "startDate": "2022-09-30T10:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-09-30T10:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-09-30T13:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-10-01T10:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-10-01T13:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-10-02T12:00:00Z"
+      }
+    ]
   }
 ]
