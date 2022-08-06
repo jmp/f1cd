@@ -20,7 +20,7 @@ describe('App', () => {
     const getDate = () => new Date('2022-01-05T12:00:00Z')
 
     it('renders round name', () => {
-        render(<App rounds={rounds} getDate={getDate} />);
+        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
 
         const element = screen.getByTestId('round');
 
@@ -28,7 +28,7 @@ describe('App', () => {
     });
 
     it('renders session name', () => {
-        render(<App rounds={rounds} getDate={getDate} />);
+        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
 
         const element = screen.getByTestId('session');
 
@@ -36,7 +36,7 @@ describe('App', () => {
     });
 
     it('renders countdown', () => {
-        render(<App rounds={rounds} getDate={getDate} />);
+        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
 
         const element = screen.getByTestId('countdown');
 
@@ -46,7 +46,7 @@ describe('App', () => {
     it('updates countdown', async () => {
         const mockGetDate = jest.fn().mockReturnValue(new Date('2022-01-06T09:56:56Z'));
 
-        render(<App rounds={rounds} getDate={mockGetDate} />);
+        render(<App rounds={rounds} getDate={mockGetDate} updateInterval={0} />);
 
         const element = screen.getByTestId('countdown');
         const previousContent = element.textContent!;
@@ -55,11 +55,11 @@ describe('App', () => {
 
         await waitFor(() => {
             expect(element).not.toHaveTextContent(previousContent);
-        }, { timeout: 2000 });
+        });
     });
 
     it('renders all sessions for the round', () => {
-        render(<App rounds={rounds} getDate={getDate} />);
+        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
 
         expect(screen.getByText(/2022-01-01 12:00 UTC – First session/)).toBeVisible();
         expect(screen.getByText(/2022-01-07 12:00 UTC – Second session/)).toBeVisible();
@@ -67,14 +67,14 @@ describe('App', () => {
     });
 
     it('renders past sessions with strikethrough', () => {
-        render(<App rounds={rounds} getDate={getDate} />);
+        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
 
         expect(screen.getByText(/2022-01-01 12:00 UTC – First session/))
             .toContainHTML('<del>2022-01-01 12:00 UTC – First session</del>');
     });
 
     it('renders upcoming sessions without strikethrough', () => {
-        render(<App rounds={rounds} getDate={getDate} />);
+        render(<App rounds={rounds} getDate={getDate} updateInterval={0} />);
 
         expect(screen.getByText(/2022-01-07 12:00 UTC – Second session/))
             .not.toContainHTML('<del>2022-01-07 12:00 UTC – Second session</del>');

@@ -8,6 +8,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App rounds={rounds} getDate={() => new Date()} />
+    <App rounds={rounds} getDate={() => new Date()} updateInterval={1000} />
   </React.StrictMode>
 );

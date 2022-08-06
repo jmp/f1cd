@@ -23,7 +23,7 @@ describe('index', () => {
 
         expect(mockRender).toHaveBeenCalledWith(
             <React.StrictMode>
-                <App rounds={expect.anything()} getDate={expect.anything()} />
+                <App rounds={expect.anything()} getDate={expect.anything()} updateInterval={1000} />
             </React.StrictMode>
         );
     });

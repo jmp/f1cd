@@ -6,10 +6,11 @@ import {Round} from './models/round';
 
 type AppProps = {
     rounds: Round[],
-    getDate: () => Date
+    getDate: () => Date,
+    updateInterval: number
 }
 
-function App({ rounds, getDate }: AppProps) {
+function App({ rounds, getDate, updateInterval }: AppProps) {
     const nextRound = new FindNextRound(rounds).findNextRound(getDate());
     const nextSession = new FindNextSession(nextRound).findNextSession(getDate());
     const sessionsBefore = nextRound.sessions.filter(({date}) => date.getTime() < nextSession.date.getTime());
@@ -18,7 +19,7 @@ function App({ rounds, getDate }: AppProps) {
     const [remainingTime, setRemainingTime] = useState(getRemainingTime.getRemainingTime(getDate(), nextSession.date));
 
     useEffect(() => {
-        const interval = setInterval(() => setRemainingTime(getRemainingTime.getRemainingTime(getDate(), nextSession.date)), 1000);
+        const interval = setInterval(() => setRemainingTime(getRemainingTime.getRemainingTime(getDate(), nextSession.date)), updateInterval);
         return () => clearInterval(interval);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
