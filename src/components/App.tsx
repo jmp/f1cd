@@ -3,8 +3,8 @@ import {FindNextSession} from '../use-cases/find-next-session';
 import {FindNextRound} from '../use-cases/find-next-round';
 import {Round} from '../models/round';
 import {Footer} from './Footer';
-import {SessionList} from './SessionList';
 import {Countdown} from './Countdown';
+import {RoundInfo} from './RoundInfo';
 import './App.css';
 
 type AppProps = {
@@ -25,8 +25,7 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
 
     return <>
         <h1>Countdown</h1>
-        <h2 data-testid='round'>{nextRound.title}</h2>
-        <SessionList sessions={nextRound.sessions} date={getDate()} />
+        <RoundInfo round={nextRound} date={date} />
         <Countdown session={nextSession} date={date} />
         <Footer />
     </>;
