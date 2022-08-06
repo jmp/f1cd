@@ -15,8 +15,8 @@ type AppProps = {
 
 function App({ rounds, getDate, updateInterval }: AppProps) {
     const [date, setDate] = useState(getDate());
-    const nextRound = new FindNextRound(rounds).findNextRound(date);
-    const nextSession = new FindNextSession(nextRound.sessions).findNextSession(date);
+    const round = new FindNextRound(rounds).findNextRound(date);
+    const session = new FindNextSession(round.sessions).findNextSession(date);
 
     useEffect(() => {
         const interval = setInterval(() => setDate(getDate()), updateInterval);
@@ -25,8 +25,8 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
 
     return <>
         <h1>Countdown</h1>
-        <RoundInfo round={nextRound} date={date} />
-        <Countdown session={nextSession} date={date} />
+        <RoundInfo round={round} date={date} />
+        <Countdown session={session} date={date} />
         <Footer />
     </>;
 }
