@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
@@ -41,6 +41,21 @@ describe('App', () => {
         const element = screen.getByTestId('countdown');
 
         expect(element).toHaveTextContent(/(((\d+ days? )?\d+ hours? )?\d+ minutes? )?\d+ seconds?/);
+    });
+
+    it('updates countdown', async () => {
+        const mockGetDate = jest.fn().mockReturnValue(new Date('2022-01-06T09:56:56Z'));
+
+        render(<App rounds={rounds} getDate={mockGetDate} />);
+
+        const element = screen.getByTestId('countdown');
+        const previousContent = element.textContent!;
+
+        mockGetDate.mockReturnValue(new Date('2022-01-06T09:56:57Z'));
+
+        await waitFor(() => {
+            expect(element).not.toHaveTextContent(previousContent);
+        }, { timeout: 2000 });
     });
 
     it('renders all sessions for the round', () => {
