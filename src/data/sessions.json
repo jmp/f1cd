@@ -50,5 +50,31 @@
         "date": "2022-08-28T13:00:00Z"
       }
     ]
+  },
+  {
+    "title": "The Netherlands",
+    "startDate": "2022-09-02T12:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-09-02T12:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-09-02T15:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-09-03T11:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-09-03T14:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-09-04T13:00:00Z"
+      }
+    ]
   }
 ]
