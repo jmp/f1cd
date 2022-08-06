@@ -4,6 +4,7 @@ import {GetRemainingTime} from '../use-cases/get-remaining-time';
 import {FindNextRound} from '../use-cases/find-next-round';
 import {Round} from '../models/round';
 import {Session} from '../models/session';
+import {Footer} from './Footer';
 import './App.css';
 
 type AppProps = {
@@ -39,12 +40,7 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
             <p id='tzinfo'>All times are {getTimezone()}</p>
             <h3>Next Session</h3>
             <p><span data-testid='session'>{nextSession.title}</span> starts in <span data-testid='countdown'>{remainingTime}</span>.</p>
-            <footer>
-                <ul>
-                    <li><a href='https://github.com/jmp/f1cd'>Source</a></li>
-                    <li><a href='https://github.com/jmp/f1cd/issues'>Bugs</a></li>
-                </ul>
-            </footer>
+            <Footer />
         </div>
     );
 }
