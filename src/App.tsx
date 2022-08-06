@@ -35,8 +35,8 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
                     sessionsBefore.map(({title, date}) => (
                         <tr key={date.getTime()} className='before'>
                             <td>{title}</td>
-                            <td>{date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
-                            <td>{date.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })}</td>
+                            <td>{formatDate(date)}</td>
+                            <td>{formatTime(date)}</td>
                         </tr>
                     ))
                 }
@@ -44,14 +44,14 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
                     sessionsAfter.map(({title, date}) => (
                         <tr key={date.getTime()} className='after'>
                             <td>{title}</td>
-                            <td>{date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</td>
-                            <td>{date.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })}</td>
+                            <td>{formatDate(date)}</td>
+                            <td>{formatTime(date)}</td>
                         </tr>
                     ))
                 }
                 </tbody>
             </table>
-            <p id='tzinfo'>All times are UTC{new Date().toString().match(/([-+][0-9]+)\s/)![1]}</p>
+            <p id='tzinfo'>All times are {getTimezone()}</p>
             <h3>Next Session</h3>
             <p><span data-testid='session'>{nextSession.title}</span> starts in <span data-testid='countdown'>{remainingTime}</span>.</p>
             <footer>
@@ -62,6 +62,18 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
             </footer>
         </div>
     );
+}
+
+function formatDate(date: Date): string {
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function formatTime(date: Date): string {
+    return date.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+}
+
+function getTimezone(): string {
+    return `UTC${new Date().toString().match(/([-+][0-9]+)\s/)![1]}`;
 }
 
 export default App;
