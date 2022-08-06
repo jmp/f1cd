@@ -24,15 +24,13 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
         return () => clearInterval(interval);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    return (
-        <div>
-            <h1>Countdown</h1>
-            <h2 data-testid='round'>{nextRound.title}</h2>
-            <SessionList sessions={nextRound.sessions} date={getDate()} />
-            <Countdown session={nextSession} date={date} />
-            <Footer />
-        </div>
-    );
+    return <>
+        <h1>Countdown</h1>
+        <h2 data-testid='round'>{nextRound.title}</h2>
+        <SessionList sessions={nextRound.sessions} date={getDate()} />
+        <Countdown session={nextSession} date={date} />
+        <Footer />
+    </>;
 }
 
 export default App;
