@@ -180,5 +180,31 @@
         "date": "2022-10-23T19:00:00Z"
       }
     ]
+  },
+  {
+    "title": "Mexico",
+    "startDate": "2022-10-28T18:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-10-28T18:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-10-28T21:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-10-29T17:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-10-29T20:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-10-30T20:00:00Z"
+      }
+    ]
   }
 ]
