@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {FindNextSession} from '../use-cases/find-next-session';
 import {FindNextRound} from '../use-cases/find-next-round';
 import {Round} from '../models/round';
+import {Header} from './Header';
 import {Footer} from './Footer';
 import {RoundInfo} from './RoundInfo';
 import {SessionInfo} from './SessionInfo';
@@ -24,7 +25,7 @@ function App({ rounds, getDate, updateInterval }: AppProps) {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return <>
-        <h1>Countdown</h1>
+        <Header />
         <RoundInfo round={round} date={date} />
         <SessionInfo session={session} date={date} />
         <Footer />
