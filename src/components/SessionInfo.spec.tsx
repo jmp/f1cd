@@ -4,14 +4,6 @@ import {SessionInfo} from './SessionInfo';
 import {aSession} from '../models/session.builder';
 
 describe('session info', () => {
-    it('shows a heading', () => {
-        render(<SessionInfo session={aSession().build()} date={new Date()} />);
-
-        const heading = screen.getByTestId('session-info-heading');
-
-        expect(heading).toBeInTheDocument();
-    });
-
     it('shows the title of the session', () => {
         const session = aSession().title('Hungary').build();
 

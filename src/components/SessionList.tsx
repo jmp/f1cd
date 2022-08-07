@@ -6,9 +6,11 @@ import './SessionList.css';
 type SessionProps = {
     round: Round;
     date: Date;
+    selectedSession: Session;
+    onSessionSelect: (session: Session) => void;
 }
 
-export function SessionList({ round, date }: SessionProps) {
+export function SessionList({ round, date, selectedSession, onSessionSelect }: SessionProps) {
     const nextSession = round.findNextSession(date);
     const sessionsBefore = round.findSessionsBefore(nextSession.date);
     const sessionsAfter = round.findSessionsAfter(nextSession.date);
@@ -16,21 +18,25 @@ export function SessionList({ round, date }: SessionProps) {
         <h3 data-testid='session-list-heading'>Sessions</h3>
         <table>
             <tbody>
-            { formatSessions(sessionsBefore, 'before') }
-            { formatSessions([nextSession], 'next') }
-            { formatSessions(sessionsAfter, 'after') }
+            { formatSessions(selectedSession, sessionsBefore, 'before', onSessionSelect) }
+            { formatSessions(selectedSession, [nextSession], 'next', onSessionSelect) }
+            { formatSessions(selectedSession, sessionsAfter, 'after', onSessionSelect) }
             </tbody>
         </table>
         <p data-testid='session-list-tzinfo' className='small'>All times are {getTimezone()}</p>
     </div>;
 }
 
-function formatSessions(sessions: Session[], className: string): ReactElement[] {
-    return sessions.map(({title, date}) => (
-        <tr key={date.getTime()} className={className}>
-            <td>{title}</td>
-            <td>{formatDate(date)}</td>
-            <td>{formatTime(date)}</td>
+function formatSessions(selectedSession: Session, sessions: Session[], className: string, onClick: (session: Session) => void): ReactElement[] {
+    return sessions.map(session => (
+        <tr
+            key={session.date.getTime()}
+            className={`${className} ${selectedSession === session ? 'selected' : ''}`}
+            onClick={() => onClick(session)}
+        >
+            <td>{session.title}</td>
+            <td>{formatDate(session.date)}</td>
+            <td>{formatTime(session.date)}</td>
         </tr>
     ))
 }

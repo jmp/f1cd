@@ -1,12 +1,22 @@
 table {
     border: 1px solid;
     border-radius: 0.7em;
-    padding: 0.5em;
-    min-width: 220pt;
+    border-spacing: 0;
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: #9999ff55;
+}
+
+tr:active {
+    background-color: #9999ff22;
 }
 
 td {
-    padding: 0.3em 1em 0.3em 0.5em;
+    border-collapse: collapse;
+    padding: 0.3em 0.5em 0.3em 0.5em;
+    margin: 0;
 }
 
 .before {
@@ -14,8 +24,8 @@ td {
     text-decoration: line-through;
 }
 
-.next {
-    font-weight: bold;
+.selected {
+    background-color: #99aaff44;
 }
 
 .small {

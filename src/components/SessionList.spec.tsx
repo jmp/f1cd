@@ -6,7 +6,14 @@ import {aRound} from '../models/round.builder';
 
 describe('session list', () => {
     it('shows a heading', () => {
-        render(<SessionList round={aRound().build()} date={new Date()} />);
+        render(
+            <SessionList
+                round={aRound().build()}
+                date={new Date()}
+                selectedSession={aSession().build()}
+                onSessionSelect={jest.fn()}
+            />
+        );
 
         const heading = screen.getByTestId('session-list-heading');
 
@@ -19,17 +26,50 @@ describe('session list', () => {
             .session(aSession().title('Session 2').date(new Date('2022-01-07Z')))
             .build();
 
-        render(<SessionList round={round} date={new Date()} />);
+        render(
+            <SessionList
+                round={round}
+                date={new Date()}
+                selectedSession={aSession().build()}
+                onSessionSelect={jest.fn()}
+            />
+        );
 
         expect(screen.getByText('Session 1')).toBeInTheDocument();
         expect(screen.getByText('Session 2')).toBeInTheDocument();
     });
 
     it('shows info about the timezone', () => {
-        render(<SessionList round={aRound().build()} date={new Date()} />);
+        render(
+            <SessionList
+                round={aRound().build()}
+                date={new Date()}
+                selectedSession={aSession().build()}
+                onSessionSelect={jest.fn()}
+            />
+        );
 
         const timezoneInfo = screen.getByTestId('session-list-tzinfo');
 
         expect(timezoneInfo).toHaveTextContent(/All times are UTC[+-]\d+/);
+    });
+
+    it('calls the selection handler when selecting a list item', () => {
+        const onSessionSelect = jest.fn();
+
+        render(
+            <SessionList
+                round={aRound().session(aSession().title('Select me!')).build()}
+                date={new Date()}
+                selectedSession={aSession().build()}
+                onSessionSelect={onSessionSelect}
+            />
+        );
+
+        screen.getByText('Select me!').click();
+
+        expect(onSessionSelect).toHaveBeenCalledWith(
+            aSession().title('Select me!').build()
+        );
     });
 });
