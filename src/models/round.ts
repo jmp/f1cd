@@ -1,7 +1,9 @@
 import {Session} from './session';
 
-export type Round = {
-    title: string;
-    startDate: Date;
-    sessions: Session[];
-};
+export class Round {
+    constructor(
+        readonly title: string,
+        readonly startDate: Date,
+        readonly sessions: Session[]
+    ) {}
+}

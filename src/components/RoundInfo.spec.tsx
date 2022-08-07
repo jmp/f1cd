@@ -5,15 +5,15 @@ import {Round} from '../models/round';
 import {Session} from '../models/session';
 
 describe('round info', () => {
-    const round: Round = {
-        title: 'Test round',
-        startDate: new Date('2022-01-07T12:00:00Z'),
-        sessions: [
+    const round = new Round(
+        'Test round',
+        new Date('2022-01-07T12:00:00Z'),
+        [
             new Session('First session', new Date('2022-01-01T12:00:00Z')),
             new Session('Second session', new Date('2022-01-07T12:00:00Z')),
             new Session('Third session', new Date('2022-01-14T12:00:00Z'))
         ]
-    };
+    );
 
     it('shows round name', () => {
         render(<RoundInfo round={round} date={new Date()} />);

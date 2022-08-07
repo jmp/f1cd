@@ -12,14 +12,11 @@ export type SessionData = {
 }[];
 
 export function mapSessionDataToRounds(sessionData: SessionData): Round[] {
-    return sessionData.map(({startDate, sessions, ...rest}) => ({
-        ...rest,
-        startDate: new Date(startDate),
-        sessions: sessions.map(({title, date}) => new Session(
-            title,
-            new Date(date)
-        ))
-    }));
+    return sessionData.map(({title, startDate, sessions}) => new Round(
+        title,
+        new Date(startDate),
+        sessions.map(({title, date}) => new Session(title, new Date(date)))
+    ));
 }
 
 export const rounds = mapSessionDataToRounds(sessionData);

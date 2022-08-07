@@ -1,5 +1,6 @@
 import {mapSessionDataToRounds, SessionData} from './session-data';
 import {Session} from '../models/session';
+import {Round} from '../models/round';
 
 describe('session data mapping', () => {
     it('raw session data is mapped to a list of rounds', () => {
@@ -17,16 +18,16 @@ describe('session data mapping', () => {
 
         const rounds = mapSessionDataToRounds(sessionData);
 
-        expect(rounds).toEqual([{
-            title: 'Hungary',
-            startDate: new Date('2022-07-29T12:00:00Z'),
-            sessions: [
+        expect(rounds).toEqual([new Round(
+            'Hungary',
+            new Date('2022-07-29T12:00:00Z'),
+            [
                 new Session('Practice 1', new Date('2022-07-29T12:00:00Z')),
                 new Session('Practice 2', new Date('2022-07-29T15:00:00Z')),
                 new Session('Practice 3', new Date('2022-07-30T11:00:00Z')),
                 new Session('Qualifying', new Date('2022-07-30T14:00:00Z')),
                 new Session('Grand Prix', new Date('2022-07-31T13:00:00Z'))
             ]
-        }]);
+        )]);
     });
 });
