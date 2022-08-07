@@ -4,10 +4,10 @@ import App from './components/App';
 import {season} from './data/session-data';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App season={season} getDate={() => new Date()} updateInterval={1000} />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App season={season} getDate={() => new Date()} updateInterval={1000} />
+    </React.StrictMode>
 );
