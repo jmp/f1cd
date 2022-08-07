@@ -19,7 +19,7 @@ export function SessionList({ round, date }: SessionProps) {
             { formatSessions(sessionsAfter, 'after') }
             </tbody>
         </table>
-        <p id='tzinfo'>All times are {getTimezone()}</p>
+        <p data-testid='session-list-tzinfo' id='tzinfo'>All times are {getTimezone()}</p>
     </div>;
 }
 
@@ -42,5 +42,5 @@ function formatTime(date: Date): string {
 }
 
 function getTimezone(): string {
-    return `UTC${new Date().toString().match(/([-+][0-9]+)\s/)![1]}`;
+    return `UTC${new Date().toString().match(/([-+]\d+)\s/)![1]}`;
 }

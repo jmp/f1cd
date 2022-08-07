@@ -31,4 +31,12 @@ describe('session list', () => {
         expect(screen.getByText('First session')).toBeInTheDocument();
         expect(screen.getByText('Second session')).toBeInTheDocument();
     });
+
+    it('shows timezone info', () => {
+        render(<SessionList {...defaultProps} />);
+
+        const timezoneInfo = screen.getByTestId('session-list-tzinfo');
+
+        expect(timezoneInfo).toHaveTextContent(/All times are UTC[+-]\d+/);
+    });
 });
