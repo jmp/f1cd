@@ -1,4 +1,4 @@
-export class GetRemainingTime {
+export class Countdown {
     getRemainingTime(from: Date, to: Date): string {
         const seconds = this.calculateDifferenceInSeconds(from, to);
         return this.format(seconds);

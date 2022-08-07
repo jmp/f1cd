@@ -1,8 +1,8 @@
-import {GetRemainingTime} from './get-remaining-time';
+import {Countdown} from './countdown';
 
-describe('get remaining time between two dates', () => {
-    it('returns 0 seconds when the dates are the same', () => {
-        const useCase = new GetRemainingTime();
+describe('countdown', () => {
+    it('shows 0 seconds when the dates are the same', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:00Z'),
@@ -12,8 +12,8 @@ describe('get remaining time between two dates', () => {
         expect(remainingTime).toEqual('0 seconds');
     });
 
-    it('returns 0 seconds when "to" date is before the "from" date', () => {
-        const useCase = new GetRemainingTime();
+    it('shows 0 seconds when "to" date is before the "from" date', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:30Z'),
@@ -23,8 +23,8 @@ describe('get remaining time between two dates', () => {
         expect(remainingTime).toEqual('0 seconds');
     });
 
-    it('returns seconds when the remaining time is less than a minute', () => {
-        const useCase = new GetRemainingTime();
+    it('shows seconds when the remaining time is less than a minute', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:00Z'),
@@ -34,8 +34,8 @@ describe('get remaining time between two dates', () => {
         expect(remainingTime).toEqual('5 seconds');
     });
 
-    it('returns minutes and seconds when the remaining time is greater than a minute', () => {
-        const useCase = new GetRemainingTime();
+    it('shows minutes and seconds when the remaining time is greater than a minute', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:00Z'),
@@ -45,8 +45,8 @@ describe('get remaining time between two dates', () => {
         expect(remainingTime).toEqual('4 minutes 5 seconds');
     });
 
-    it('returns hours, minutes and seconds when the remaining time is greater than an hour', () => {
-        const useCase = new GetRemainingTime();
+    it('shows hours, minutes and seconds when the remaining time is greater than an hour', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:00Z'),
@@ -56,8 +56,8 @@ describe('get remaining time between two dates', () => {
         expect(remainingTime).toEqual('3 hours 4 minutes 5 seconds');
     });
 
-    it('returns days, hours, minutes and seconds when the remaining time is greater than a day', () => {
-        const useCase = new GetRemainingTime();
+    it('shows days, hours, minutes and seconds when the remaining time is greater than a day', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:00Z'),
@@ -67,8 +67,8 @@ describe('get remaining time between two dates', () => {
         expect(remainingTime).toEqual('2 days 3 hours 4 minutes 5 seconds');
     });
 
-    it('returns seconds in singular when there is exactly one second', () => {
-        const useCase = new GetRemainingTime();
+    it('shows seconds in singular when there is exactly one second', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:00Z'),
@@ -78,8 +78,8 @@ describe('get remaining time between two dates', () => {
         expect(remainingTime).toEqual('1 second');
     });
 
-    it('returns minutes in singular when there is exactly one minute', () => {
-        const useCase = new GetRemainingTime();
+    it('shows minutes in singular when there is exactly one minute', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:00Z'),
@@ -89,8 +89,8 @@ describe('get remaining time between two dates', () => {
         expect(remainingTime).toEqual('1 minute 0 seconds');
     });
 
-    it('returns hours in singular when there is exactly one hour', () => {
-        const useCase = new GetRemainingTime();
+    it('shows hours in singular when there is exactly one hour', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:00Z'),
@@ -100,8 +100,8 @@ describe('get remaining time between two dates', () => {
         expect(remainingTime).toEqual('1 hour 0 minutes 0 seconds');
     });
 
-    it('returns days in singular when there is exactly one day', () => {
-        const useCase = new GetRemainingTime();
+    it('shows days in singular when there is exactly one day', () => {
+        const useCase = new Countdown();
 
         const remainingTime = useCase.getRemainingTime(
             new Date('2022-01-01T00:00:00Z'),
