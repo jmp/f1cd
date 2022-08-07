@@ -1,8 +1,8 @@
 import {Session} from './session';
 
 describe('session', () => {
-    describe('remaining time to the start of the session', () => {
-        it('shows 0 seconds when the dates are the same', () => {
+    describe('remaining time to the beginning of the session', () => {
+        it('shows zero seconds when there is no time remaining', () => {
             const session = new Session('Test session', new Date('2022-01-01T00:00:00Z'));
 
             const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00:00Z'));
@@ -10,7 +10,7 @@ describe('session', () => {
             expect(remainingTime).toEqual('0 seconds');
         });
 
-        it('shows 0 seconds when "to" date is before the "from" date', () => {
+        it('shows zero seconds when the session has already begun', () => {
             const session = new Session('Test session', new Date('2022-01-01T00:00:00Z'));
 
             const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00:30Z'));

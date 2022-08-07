@@ -18,7 +18,7 @@ describe('App', () => {
         updateInterval: 0
     };
 
-    it('shows header', () => {
+    it('shows a header', () => {
         render(<App {...defaultProps} />);
 
         const header = screen.getByTestId('header');
@@ -26,7 +26,7 @@ describe('App', () => {
         expect(header).toBeInTheDocument();
     });
 
-    it('shows round info', () => {
+    it('shows the next round', () => {
         render(<App {...defaultProps} />);
 
         const roundInfo = screen.getByTestId('round-info');
@@ -34,10 +34,18 @@ describe('App', () => {
         expect(roundInfo).toBeInTheDocument();
     })
 
-    it('shows session info', () => {
+    it('shows the next session', () => {
         render(<App {...defaultProps} />);
 
         const sessionInfo = screen.getByTestId('session-info');
+
+        expect(sessionInfo).toBeInTheDocument();
+    });
+
+    it('shows a footer', () => {
+        render(<App {...defaultProps} />);
+
+        const sessionInfo = screen.getByTestId('footer');
 
         expect(sessionInfo).toBeInTheDocument();
     });

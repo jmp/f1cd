@@ -15,7 +15,7 @@ describe('round info', () => {
         ]
     );
 
-    it('shows round name', () => {
+    it('shows the name of the round', () => {
         render(<RoundInfo round={round} date={new Date()} />);
 
         const element = screen.getByTestId('round-title');
@@ -23,7 +23,7 @@ describe('round info', () => {
         expect(element).toHaveTextContent('Test round');
     });
 
-    it('shows session list', () => {
+    it('shows a list of sessions', () => {
         render(<RoundInfo round={round} date={new Date()} />);
 
         const element = screen.getByTestId('session-list');

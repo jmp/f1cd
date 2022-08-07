@@ -25,14 +25,14 @@ describe('session list', () => {
         expect(heading).toBeInTheDocument();
     });
 
-    it('shows a list of sessions', () => {
+    it('shows each session in the round', () => {
         render(<SessionList {...defaultProps} />);
 
         expect(screen.getByText('First session')).toBeInTheDocument();
         expect(screen.getByText('Second session')).toBeInTheDocument();
     });
 
-    it('shows timezone info', () => {
+    it('shows info about the timezone', () => {
         render(<SessionList {...defaultProps} />);
 
         const timezoneInfo = screen.getByTestId('session-list-tzinfo');

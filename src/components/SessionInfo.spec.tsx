@@ -17,7 +17,7 @@ describe('session info', () => {
         expect(element).toBeInTheDocument();
     });
 
-    it('shows session title', () => {
+    it('shows the title of the session', () => {
         render(<SessionInfo {...defaultProps} />);
 
         const element = screen.getByTestId('session-title');
@@ -25,7 +25,7 @@ describe('session info', () => {
         expect(element).toHaveTextContent('Test session');
     });
 
-    it('shows countdown', () => {
+    it('shows the remaining time until the session starts', () => {
         render(<SessionInfo {...defaultProps} />);
 
         const element = screen.getByTestId('countdown');

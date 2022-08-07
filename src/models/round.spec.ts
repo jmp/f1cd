@@ -3,7 +3,7 @@ import {Round} from './round';
 
 describe('round', () => {
     describe('finding the next session', () => {
-        it('finds the next session when there are upcoming sessions', () => {
+        it('finds the first session after the given date', () => {
             const round = new Round(
                 'Test round',
                 new Date('2022-01-01T12:00:00Z'),
@@ -20,7 +20,7 @@ describe('round', () => {
             );
         });
 
-        it('finds the last session when there are no upcoming sessions', () => {
+        it('finds the last session when there are no sessions after the given date', () => {
             const round = new Round(
                 'Test session',
                 new Date('2022-01-01T12:00:00Z'),

@@ -2,8 +2,8 @@ import {Season} from './season';
 import {Round} from './round';
 import {Session} from './session';
 
-describe('find next round', () => {
-    it('finds an next round when there are upcoming rounds', () => {
+describe('finding the next round after a given date', () => {
+    it('finds the first round when there are rounds after the date', () => {
         const season = new Season([
             new Round(
                 'Wrong round',
@@ -31,7 +31,7 @@ describe('find next round', () => {
         ));
     });
 
-    it('finds the last round when there are no upcoming rounds', () => {
+    it('finds the last round when there are no rounds after the date', () => {
         const season = new Season([
             new Round(
                 'Wrong round',
