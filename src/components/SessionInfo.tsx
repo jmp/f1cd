@@ -9,7 +9,7 @@ type CountdownProps = {
 
 const getRemainingTime = new GetRemainingTime();
 
-export function Countdown({session, date}: CountdownProps) {
+export function SessionInfo({session, date}: CountdownProps) {
     const remainingTime = getRemainingTime.getRemainingTime(date, session.date);
     return <>
         <h3>Next Session</h3>

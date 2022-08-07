@@ -1,16 +1,16 @@
-import {render, screen} from '@testing-library/react';
 import React from 'react';
-import {Countdown} from './Countdown';
+import {render, screen} from '@testing-library/react';
+import {SessionInfo} from './SessionInfo';
 import {Session} from '../models/session';
 
-describe('countdown', () => {
+describe('session info', () => {
     const session: Session = {
         title: 'Test session',
         date: new Date('2022-01-01T12:00:00Z')
     };
 
     it('shows session name', () => {
-        render(<Countdown session={session} date={new Date('2022-01-01T11:00:00Z')} />);
+        render(<SessionInfo session={session} date={new Date('2022-01-01T11:00:00Z')} />);
 
         const element = screen.getByTestId('session');
 
@@ -18,7 +18,7 @@ describe('countdown', () => {
     });
 
     it('shows countdown', () => {
-        render(<Countdown session={session} date={new Date('2022-01-01T11:00:00Z')} />);
+        render(<SessionInfo session={session} date={new Date('2022-01-01T11:00:00Z')} />);
 
         const element = screen.getByTestId('countdown');
 
