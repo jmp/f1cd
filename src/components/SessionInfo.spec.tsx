@@ -9,7 +9,7 @@ describe('session info', () => {
     it('shows session name', () => {
         render(<SessionInfo session={session} date={new Date('2022-01-01T11:00:00Z')} />);
 
-        const element = screen.getByTestId('session');
+        const element = screen.getByTestId('session-title');
 
         expect(element).toHaveTextContent('Test session');
     });

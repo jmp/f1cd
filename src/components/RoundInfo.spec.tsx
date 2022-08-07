@@ -18,7 +18,7 @@ describe('round info', () => {
     it('shows round name', () => {
         render(<RoundInfo round={round} date={new Date()} />);
 
-        const element = screen.getByTestId('round');
+        const element = screen.getByTestId('round-title');
 
         expect(element).toHaveTextContent('Test round');
     });
