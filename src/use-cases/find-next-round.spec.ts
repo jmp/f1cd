@@ -1,29 +1,21 @@
 import {Round} from '../models/round';
 import {FindNextRound} from './find-next-round';
+import {Session} from '../models/session';
 
 describe('find next round', () => {
     it('finds details for the next upcoming round', () => {
         const rounds: Round[] = [{
             title: 'Wrong round',
             startDate: new Date('2022-01-01T12:00:00Z'),
-            sessions: [{
-                title: 'Wrong session',
-                date: new Date('2022-01-01T12:00:00Z')
-            }]
+            sessions: [new Session('Wrong session', new Date('2022-01-01T12:00:00Z'))]
         }, {
             title: 'Correct round',
             startDate: new Date('2022-01-07T12:00:00Z'),
-            sessions: [{
-                title: 'Correct session',
-                date: new Date('2022-01-07T12:00:00Z')
-            }]
+            sessions: [new Session('Correct session', new Date('2022-01-07T12:00:00Z'))]
         }, {
             title: 'Wrong round',
             startDate: new Date('2022-01-14T12:00:00Z'),
-            sessions: [{
-                title: 'Wrong session',
-                date: new Date('2022-01-14T12:00:00Z')
-            }]
+            sessions: [new Session('Wrong session', new Date('2022-01-14T12:00:00Z'))]
         }];
         const useCase = new FindNextRound(rounds);
 
@@ -32,10 +24,7 @@ describe('find next round', () => {
         expect(nextRound).toEqual({
             title: 'Correct round',
             startDate: new Date('2022-01-07T12:00:00Z'),
-            sessions: [{
-                title: 'Correct session',
-                date: new Date('2022-01-07T12:00:00Z')
-            }]
+            sessions: [new Session('Correct session', new Date('2022-01-07T12:00:00Z'))]
         });
     });
 
@@ -43,17 +32,11 @@ describe('find next round', () => {
         const rounds: Round[] = [{
             title: 'Wrong round',
             startDate: new Date('2022-01-01T12:00:00Z'),
-            sessions: [{
-                title: 'Wrong session',
-                date: new Date('2022-01-01T12:00:00Z')
-            }]
+            sessions: [new Session('Wrong session', new Date('2022-01-01T12:00:00Z'))]
         }, {
             title: 'Correct round',
             startDate: new Date('2022-01-07T12:00:00Z'),
-            sessions: [{
-                title: 'Correct session',
-                date: new Date('2022-01-07T12:00:00Z')
-            }]
+            sessions: [new Session('Correct session', new Date('2022-01-07T12:00:00Z'))]
         }];
         const useCase = new FindNextRound(rounds);
 
@@ -62,10 +45,7 @@ describe('find next round', () => {
         expect(nextRound).toEqual({
             title: 'Correct round',
             startDate: new Date('2022-01-07T12:00:00Z'),
-            sessions: [{
-                title: 'Correct session',
-                date: new Date('2022-01-07T12:00:00Z')
-            }]
+            sessions: [new Session('Correct session', new Date('2022-01-07T12:00:00Z'))]
         });
     });
 });

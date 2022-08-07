@@ -1,4 +1,6 @@
-export type Session = {
-    title: string;
-    date: Date;
-};
+export class Session {
+    constructor(
+        readonly title: string,
+        readonly date: Date
+    ) {}
+}

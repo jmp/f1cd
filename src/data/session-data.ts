@@ -1,4 +1,5 @@
 import {Round} from '../models/round';
+import {Session} from '../models/session';
 import sessionData from './sessions.json';
 
 export type SessionData = {
@@ -14,10 +15,10 @@ export function mapSessionDataToRounds(sessionData: SessionData): Round[] {
     return sessionData.map(({startDate, sessions, ...rest}) => ({
         ...rest,
         startDate: new Date(startDate),
-        sessions: sessions.map(({date, ...rest}) => ({
-            ...rest,
-            date: new Date(date)
-        }))
+        sessions: sessions.map(({title, date}) => new Session(
+            title,
+            new Date(date)
+        ))
     }));
 }
 
