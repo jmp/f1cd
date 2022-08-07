@@ -9,8 +9,8 @@ type SessionProps = {
 
 export function SessionList({ round, date }: SessionProps) {
     const nextSession = round.findNextSession(date);
-    const sessionsBefore = round.sessions.filter(({date}) => date.getTime() < nextSession.date.getTime());
-    const sessionsAfter = round.sessions.filter(({date}) => date.getTime() >= nextSession.date.getTime());
+    const sessionsBefore = round.findSessionsBefore(nextSession.date);
+    const sessionsAfter = round.findSessionsAfter(nextSession.date);
     return <div data-testid='session-list'>
         <h3 data-testid='session-list-heading'>Sessions</h3>
         <table>
