@@ -1,16 +1,11 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {SessionInfo} from './SessionInfo';
-import {Session} from '../models/session';
+import {aSession} from '../models/session.builder';
 
 describe('session info', () => {
-    const defaultProps = {
-        session: new Session('Test session', new Date('2022-01-01T12:00:00Z')),
-        date: new Date('2022-01-01T11:00:00Z')
-    };
-
     it('shows a heading', () => {
-        render(<SessionInfo {...defaultProps} />);
+        render(<SessionInfo session={aSession().build()} date={new Date()} />);
 
         const heading = screen.getByTestId('session-info-heading');
 
@@ -18,18 +13,18 @@ describe('session info', () => {
     });
 
     it('shows the title of the session', () => {
-        render(<SessionInfo {...defaultProps} />);
+        const session = aSession().title('Hungary').build();
+
+        render(<SessionInfo session={session} date={new Date()} />);
 
         const sessionTitle = screen.getByTestId('session-title');
 
-        expect(sessionTitle).toHaveTextContent('Test session');
+        expect(sessionTitle).toHaveTextContent('Hungary');
     });
 
     it('shows the remaining time until the session starts', () => {
-        render(<SessionInfo {...defaultProps} />);
+        render(<SessionInfo session={aSession().build()} date={new Date()} />);
 
-        const timeRemaining = screen.getByTestId('remaining-time');
-
-        expect(timeRemaining).toHaveTextContent(/(((\d+ days? )?\d+ hours? )?\d+ minutes? )?\d+ seconds?/);
+        expect(screen.getByTestId('remaining-time')).toBeInTheDocument();
     });
 });

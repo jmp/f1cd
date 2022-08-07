@@ -1,35 +1,18 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Body} from './Body';
-import {Season} from '../models/season';
-import {Round} from '../models/round';
-import {Session} from '../models/session';
+import {aSeason} from '../models/season.builder';
 
 describe('body', () => {
-    const defaultProps = {
-        season: new Season([
-            new Round(
-                'Test round',
-                new Date('2022-01-01T12:00:00Z'),
-                [new Session('Test session', new Date('2022-01-07T12:00:00Z'))]
-            )
-        ]),
-        date: new Date('2022-01-01T11:00:00Z')
-    }
-
     it('shows the next round', () => {
-        render(<Body {...defaultProps} />);
+        render(<Body season={aSeason().build()} date={new Date()} />);
 
-        const roundInfo = screen.getByTestId('round-info');
-
-        expect(roundInfo).toBeInTheDocument();
+        expect(screen.getByTestId('round-info')).toBeInTheDocument();
     });
 
     it('shows the next session', () => {
-        render(<Body {...defaultProps} />);
+        render(<Body season={aSeason().build()} date={new Date()} />);
 
-        const sessionInfo = screen.getByTestId('session-info');
-
-        expect(sessionInfo).toBeInTheDocument();
+        expect(screen.getByTestId('session-info')).toBeInTheDocument();
     });
 });

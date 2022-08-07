@@ -1,19 +1,13 @@
 import React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import App from './App';
-import {Session} from '../models/session';
-import {Round} from '../models/round';
-import {Season} from '../models/season';
+import {aRound} from '../models/round.builder';
+import {aSeason} from '../models/season.builder';
+import {aSession} from '../models/session.builder';
 
 describe('app', () => {
     const defaultProps = {
-        season: new Season([
-            new Round(
-                'Test round',
-                new Date('2022-01-01T12:00:00Z'),
-                [new Session('Test session', new Date('2022-01-07T12:00:00Z'))]
-            )
-        ]),
+        season: aSeason().build(),
         getDate: () => new Date(),
         updateInterval: 0
     };
@@ -37,9 +31,12 @@ describe('app', () => {
     });
 
     it('updates countdown', async () => {
+        const season = aSeason()
+            .round(aRound().session(aSession().date(new Date('2022-01-07T00:00:00Z'))))
+            .build();
         const mockGetDate = jest.fn().mockReturnValue(new Date('2022-01-06T09:56:56Z'));
 
-        render(<App {...defaultProps} getDate={mockGetDate} />);
+        render(<App {...defaultProps} season={season} getDate={mockGetDate} />);
 
         const remainingTime = screen.getByTestId('remaining-time');
         const previousContent = remainingTime.textContent!;

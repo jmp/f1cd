@@ -1,24 +1,12 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {SessionList} from './SessionList';
-import {Session} from '../models/session';
-import {Round} from '../models/round';
+import {aSession} from '../models/session.builder';
+import {aRound} from '../models/round.builder';
 
 describe('session list', () => {
-    const defaultProps = {
-        round: new Round(
-            'Test round',
-            new Date('2022-01-01T12:00:00Z'),
-            [
-                new Session('First session', new Date('2022-01-01T12:00:00Z')),
-                new Session('Second session', new Date('2022-01-07T12:00:00Z'))
-            ]
-        ),
-        date: new Date('2022-01-01T06:00:00Z')
-    };
-
     it('shows a heading', () => {
-        render(<SessionList {...defaultProps} />);
+        render(<SessionList round={aRound().build()} date={new Date()} />);
 
         const heading = screen.getByTestId('session-list-heading');
 
@@ -26,14 +14,19 @@ describe('session list', () => {
     });
 
     it('shows each session in the round', () => {
-        render(<SessionList {...defaultProps} />);
+        const round = aRound()
+            .session(aSession().title('Session 1').date(new Date('2022-01-01Z')))
+            .session(aSession().title('Session 2').date(new Date('2022-01-07Z')))
+            .build();
 
-        expect(screen.getByText('First session')).toBeInTheDocument();
-        expect(screen.getByText('Second session')).toBeInTheDocument();
+        render(<SessionList round={round} date={new Date()} />);
+
+        expect(screen.getByText('Session 1')).toBeInTheDocument();
+        expect(screen.getByText('Session 2')).toBeInTheDocument();
     });
 
     it('shows info about the timezone', () => {
-        render(<SessionList {...defaultProps} />);
+        render(<SessionList round={aRound().build()} date={new Date()} />);
 
         const timezoneInfo = screen.getByTestId('session-list-tzinfo');
 
