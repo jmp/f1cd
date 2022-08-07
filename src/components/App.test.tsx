@@ -5,7 +5,7 @@ import {Session} from '../models/session';
 import {Round} from '../models/round';
 import {Season} from '../models/season';
 
-describe('App', () => {
+describe('app', () => {
     const defaultProps = {
         season: new Season([
             new Round(
