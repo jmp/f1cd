@@ -1,11 +1,12 @@
 import {Round} from '../models/round';
+import {Season} from '../models/season';
 
 export class FindNextRound {
-    constructor(private readonly rounds: Round[]) {}
+    constructor(private readonly season: Season) {}
 
     findNextRound(fromDate: Date): Round {
-        return this.rounds.find(
+        return this.season.rounds.find(
             ({startDate}) => fromDate.getTime() <= startDate.getTime()
-        ) ?? this.rounds.at(-1)!;
+        ) ?? this.season.rounds.at(-1)!;
     }
 }

@@ -1,6 +1,7 @@
 import {Renderer} from 'react-dom';
 import App from './components/App';
 import React from 'react';
+import {Season} from './models/season';
 
 describe('index', () => {
     let mockRender: jest.Mock<Renderer>;
@@ -23,7 +24,7 @@ describe('index', () => {
 
         expect(mockRender).toHaveBeenCalledWith(
             <React.StrictMode>
-                <App rounds={expect.anything()} getDate={expect.anything()} updateInterval={1000} />
+                <App season={expect.anything()} getDate={expect.anything()} updateInterval={1000} />
             </React.StrictMode>
         );
     });
@@ -40,16 +41,15 @@ describe('index', () => {
         expect(getDate()).toBeInstanceOf(Date);
     });
 
-    it('renders the App with valid rounds', () => {
+    it('renders the App with a season', () => {
         const root = document.createElement('div');
         root.id = 'root';
         document.body.appendChild(root);
 
         require('./index.tsx');
 
-        const { rounds } = mockRender.mock.calls[0][0].props.children.props;
+        const { season } = mockRender.mock.calls[0][0].props.children.props;
 
-        expect(rounds).toBeInstanceOf(Array);
-        expect(rounds.length).toBeGreaterThan(0);
+        expect(season.constructor.name).toEqual('Season');
     });
 });
