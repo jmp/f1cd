@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/jmp/f1cd.git"
   },
+  "bugs": {
+    "url": "https://github.com/jmp/f1cd/issues"
+  },
   "author": "Jarkko Piiroinen",
   "license": "MIT",
   "dependencies": {
