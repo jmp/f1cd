@@ -4,8 +4,10 @@ export class Season {
     constructor(readonly rounds: Round[]) {}
 
     findNextRound(fromDate: Date): Round {
-        return this.rounds.find(
-            ({startDate}) => fromDate.getTime() <= startDate.getTime()
-        ) ?? this.rounds.at(-1)!;
+        const round = this.rounds.find(({startDate}) => fromDate.getTime() <= startDate.getTime());
+        if (round) {
+            return round;
+        }
+        return this.rounds[this.rounds.length - 1];
     }
 }
