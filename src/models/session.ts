@@ -21,13 +21,13 @@ export class Session {
 
         let result = '';
         if (days > 0) {
-            result += `${days} ${days === 1 ? 'day' : 'days'} `
+            result += `${days} ${days === 1 ? 'day' : 'days'} `;
         }
         if (result || hours > 0) {
-            result += `${hours} ${hours === 1 ? 'hour' : 'hours'} `
+            result += `${hours} ${hours === 1 ? 'hour' : 'hours'} `;
         }
         if (result || minutes > 0) {
-            result += `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} `
+            result += `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} `;
         }
         result += `${seconds} ${seconds === 1 ? 'second' : 'seconds'}`;
         return result;
