@@ -14,7 +14,7 @@ export function SessionInfo({session, date}: CountdownProps) {
             <h3 data-testid='session-info-heading'>Next Session</h3>
             <div className='session'>
                 <div data-testid='session-title' className='session-title'>{session.title}</div>
-                <div data-testid='countdown' className='countdown'>{remainingTime}</div>
+                <div data-testid='remaining-time' className='remaining-time'>{remainingTime}</div>
             </div>
         </div>
     );

@@ -12,24 +12,24 @@ describe('session info', () => {
     it('shows a heading', () => {
         render(<SessionInfo {...defaultProps} />);
 
-        const element = screen.getByTestId('session-info-heading');
+        const heading = screen.getByTestId('session-info-heading');
 
-        expect(element).toBeInTheDocument();
+        expect(heading).toBeInTheDocument();
     });
 
     it('shows the title of the session', () => {
         render(<SessionInfo {...defaultProps} />);
 
-        const element = screen.getByTestId('session-title');
+        const sessionTitle = screen.getByTestId('session-title');
 
-        expect(element).toHaveTextContent('Test session');
+        expect(sessionTitle).toHaveTextContent('Test session');
     });
 
     it('shows the remaining time until the session starts', () => {
         render(<SessionInfo {...defaultProps} />);
 
-        const element = screen.getByTestId('countdown');
+        const timeRemaining = screen.getByTestId('remaining-time');
 
-        expect(element).toHaveTextContent(/(((\d+ days? )?\d+ hours? )?\d+ minutes? )?\d+ seconds?/);
+        expect(timeRemaining).toHaveTextContent(/(((\d+ days? )?\d+ hours? )?\d+ minutes? )?\d+ seconds?/);
     });
 });

@@ -47,13 +47,13 @@ describe('app', () => {
 
         render(<App {...defaultProps} getDate={mockGetDate} />);
 
-        const element = screen.getByTestId('countdown');
-        const previousContent = element.textContent!;
+        const remainingTime = screen.getByTestId('remaining-time');
+        const previousContent = remainingTime.textContent!;
 
         mockGetDate.mockReturnValue(new Date('2022-01-06T09:56:57Z'));
 
         await waitFor(() => {
-            expect(element).not.toHaveTextContent(previousContent);
+            expect(remainingTime).not.toHaveTextContent(previousContent);
         });
     });
 });
