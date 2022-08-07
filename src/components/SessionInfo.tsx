@@ -1,16 +1,13 @@
 import React from 'react';
 import {Session} from '../models/session';
-import {Countdown} from '../models/countdown';
 
 type CountdownProps = {
     session: Session;
     date: Date;
 };
 
-const countdown = new Countdown();
-
 export function SessionInfo({session, date}: CountdownProps) {
-    const remainingTime = countdown.getRemainingTime(date, session.date);
+    const remainingTime = session.getRemainingTime(date);
     return (
         <div data-testid='session-info'>
             <h3 data-testid='session-info-heading'>Next Session</h3>

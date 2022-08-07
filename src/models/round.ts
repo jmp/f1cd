@@ -8,13 +8,9 @@ export class Round {
     ) {}
 
     findNextSession(fromDate: Date): Session {
-        const session = this.sessions.find(
+        return this.sessions.find(
             ({date}) => fromDate.getTime() <= date.getTime()
         ) ?? this.sessions.at(-1)!;
-        return {
-            title: session.title,
-            date: session.date
-        };
     }
 
     findSessionsBefore(date: Date): Session[] {
