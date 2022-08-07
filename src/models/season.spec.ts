@@ -1,10 +1,9 @@
-import {Round} from '../models/round';
-import {FindNextRound} from './find-next-round';
-import {Session} from '../models/session';
-import {Season} from '../models/season';
+import {Season} from './season';
+import {Round} from './round';
+import {Session} from './session';
 
 describe('find next round', () => {
-    it('finds details for the next upcoming round', () => {
+    it('finds an next round when there are upcoming rounds', () => {
         const season = new Season([
             new Round(
                 'Wrong round',
@@ -22,9 +21,8 @@ describe('find next round', () => {
                 [new Session('Wrong session', new Date('2022-01-14T12:00:00Z'))]
             )
         ]);
-        const useCase = new FindNextRound(season);
 
-        const nextRound = useCase.findNextRound(new Date('2022-01-05T12:00:00Z'));
+        const nextRound = season.findNextRound(new Date('2022-01-05T12:00:00Z'));
 
         expect(nextRound).toEqual(new Round(
             'Correct round',
@@ -33,7 +31,7 @@ describe('find next round', () => {
         ));
     });
 
-    it('finds details for the last round when there are no upcoming rounds', () => {
+    it('finds the last round when there are no upcoming rounds', () => {
         const season = new Season([
             new Round(
                 'Wrong round',
@@ -46,9 +44,8 @@ describe('find next round', () => {
                 [new Session('Correct session', new Date('2022-01-07T12:00:00Z'))]
             )
         ]);
-        const useCase = new FindNextRound(season);
 
-        const nextRound = useCase.findNextRound(new Date('2022-01-14T12:00:00Z'));
+        const nextRound = season.findNextRound(new Date('2022-01-14T12:00:00Z'));
 
         expect(nextRound).toEqual(new Round(
             'Correct round',
