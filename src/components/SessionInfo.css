@@ -1,0 +1,15 @@
+.session {
+    border: 1px solid;
+    border-radius: 0.7em;
+    padding: 1em;
+    display: inline-block;
+    text-align: center;
+    min-width: 210pt;
+}
+
+.session-title {
+    font-size: 24pt;
+    font-weight: 400;
+    margin-bottom: 0.3em;
+    text-align: center;
+}
