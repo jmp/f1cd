@@ -10,12 +10,8 @@ describe('App', () => {
         season: new Season([
             new Round(
                 'Test round',
-                new Date('2022-01-07T12:00:00Z'),
-                [
-                    new Session('First session', new Date('2022-01-01T12:00:00Z')),
-                    new Session('Second session', new Date('2022-01-07T12:00:00Z')),
-                    new Session('Third session', new Date('2022-01-14T12:00:00Z'))
-                ]
+                new Date('2022-01-01T12:00:00Z'),
+                [new Session('Test session', new Date('2022-01-07T12:00:00Z'))]
             )
         ]),
         getDate: () => new Date(),
