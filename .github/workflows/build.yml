@@ -6,5 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm ci
-      - run: npm test
+      - run: npm test -- --verbose
       - run: npm run build
