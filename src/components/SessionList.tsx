@@ -12,7 +12,7 @@ export function SessionList({ round, date }: SessionProps) {
     const sessionsBefore = round.sessions.filter(({date}) => date.getTime() < nextSession.date.getTime());
     const sessionsAfter = round.sessions.filter(({date}) => date.getTime() >= nextSession.date.getTime());
     return <>
-        <h3>Sessions</h3>
+        <h3 data-testid='session-list-heading'>Sessions</h3>
         <table data-testid='sessions'>
             <tbody>
             { formatSessions(sessionsBefore, 'before') }
