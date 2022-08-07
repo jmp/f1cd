@@ -10,7 +10,7 @@ export class Session {
     }
 
     private calculateDifferenceInSeconds(from: Date, to: Date): number {
-        return Math.max(0, to.getTime() - from.getTime()) / 1000
+        return Math.max(0, to.getTime() - from.getTime()) / 1000;
     }
 
     private format(totalSeconds: number): string {
