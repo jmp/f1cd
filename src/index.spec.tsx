@@ -29,7 +29,7 @@ describe('index', () => {
         );
     });
 
-    it('renders the App with a valid date provider', () => {
+    it('renders the App with a date provider', () => {
         const root = document.createElement('div');
         root.id = 'root';
         document.body.appendChild(root);
