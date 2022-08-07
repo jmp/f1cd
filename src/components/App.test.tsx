@@ -21,25 +21,19 @@ describe('app', () => {
     it('shows a header', () => {
         render(<App {...defaultProps} />);
 
-        const header = screen.getByTestId('header');
-
-        expect(header).toBeInTheDocument();
+        expect(screen.getByTestId('header')).toBeInTheDocument();
     });
 
     it('shows a body', () => {
         render(<App {...defaultProps} />);
 
-        const body = screen.getByTestId('body');
-
-        expect(body).toBeInTheDocument();
+        expect(screen.getByTestId('body')).toBeInTheDocument();
     })
 
     it('shows a footer', () => {
         render(<App {...defaultProps} />);
 
-        const sessionInfo = screen.getByTestId('footer');
-
-        expect(sessionInfo).toBeInTheDocument();
+        expect(screen.getByTestId('footer')).toBeInTheDocument();
     });
 
     it('updates countdown', async () => {
