@@ -26,21 +26,13 @@ describe('app', () => {
         expect(header).toBeInTheDocument();
     });
 
-    it('shows the next round', () => {
+    it('shows a body', () => {
         render(<App {...defaultProps} />);
 
-        const roundInfo = screen.getByTestId('round-info');
+        const body = screen.getByTestId('body');
 
-        expect(roundInfo).toBeInTheDocument();
+        expect(body).toBeInTheDocument();
     })
-
-    it('shows the next session', () => {
-        render(<App {...defaultProps} />);
-
-        const sessionInfo = screen.getByTestId('session-info');
-
-        expect(sessionInfo).toBeInTheDocument();
-    });
 
     it('shows a footer', () => {
         render(<App {...defaultProps} />);

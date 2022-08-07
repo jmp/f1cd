@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Header} from './Header';
 import {Footer} from './Footer';
-import {RoundInfo} from './RoundInfo';
-import {SessionInfo} from './SessionInfo';
+import {Body} from './Body';
 import {Season} from '../models/season';
 import './App.css';
 
@@ -14,8 +13,6 @@ type AppProps = {
 
 function App({ season, getDate, updateInterval }: AppProps) {
     const [date, setDate] = useState(getDate());
-    const round = season.findNextRound(date);
-    const session = round.findNextSession(date);
 
     useEffect(() => {
         const interval = setInterval(() => setDate(getDate()), updateInterval);
@@ -24,8 +21,7 @@ function App({ season, getDate, updateInterval }: AppProps) {
 
     return <>
         <Header />
-        <RoundInfo round={round} date={date} />
-        <SessionInfo session={session} date={date} />
+        <Body season={season} date={date} />
         <Footer />
     </>;
 }
