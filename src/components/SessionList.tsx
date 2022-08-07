@@ -1,6 +1,7 @@
 import {Session} from '../models/session';
 import React, {ReactElement} from 'react';
 import {Round} from '../models/round';
+import './SessionList.css';
 
 type SessionProps = {
     round: Round;
@@ -19,7 +20,7 @@ export function SessionList({ round, date }: SessionProps) {
             { formatSessions(sessionsAfter, 'after') }
             </tbody>
         </table>
-        <p data-testid='session-list-tzinfo' id='tzinfo'>All times are {getTimezone()}</p>
+        <p data-testid='session-list-tzinfo' className='small'>All times are {getTimezone()}</p>
     </div>;
 }
 

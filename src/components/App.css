@@ -13,16 +13,3 @@ a:visited {
 body {
     font: 12pt 'Helvetica Neue', 'Arial', sans-serif;
 }
-
-td {
-    padding-right: 1em;
-}
-
-.before {
-    opacity: 50%;
-    text-decoration: line-through;
-}
-
-#tzinfo {
-    font-size: small;
-}
