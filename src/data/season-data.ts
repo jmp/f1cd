@@ -1,9 +1,9 @@
 import {Round} from '../models/round';
 import {Session} from '../models/session';
-import sessionData from './sessions.json';
 import {Season} from '../models/season';
+import seasonData from './season-data.json';
 
-export type SessionData = {
+export type SeasonData = {
     title: string;
     startDate: string;
     sessions: {
@@ -12,9 +12,9 @@ export type SessionData = {
     }[];
 }[];
 
-export function mapSessionDataToSeason(sessionData: SessionData): Season {
+export function mapSeasonDataToSeason(seasonData: SeasonData): Season {
     return new Season(
-        sessionData.map(({title, startDate, sessions}) => new Round(
+        seasonData.map(({title, startDate, sessions}) => new Round(
             title,
             new Date(startDate),
             sessions.map(({title, date}) => new Session(title, new Date(date)))
@@ -22,4 +22,4 @@ export function mapSessionDataToSeason(sessionData: SessionData): Season {
     );
 }
 
-export const season = mapSessionDataToSeason(sessionData);
+export const season = mapSeasonDataToSeason(seasonData);

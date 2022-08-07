@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
-import {season} from './data/session-data';
+import {season} from './data/season-data';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement

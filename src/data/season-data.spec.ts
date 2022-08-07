@@ -1,11 +1,11 @@
-import {mapSessionDataToSeason, SessionData} from './session-data';
+import {mapSeasonDataToSeason, SeasonData} from './season-data';
 import {Session} from '../models/session';
 import {Round} from '../models/round';
 import {Season} from '../models/season';
 
-describe('session data mapping', () => {
-    it('raw session data is mapped to a season', () => {
-        const sessionData: SessionData = [{
+describe('season data mapping', () => {
+    it('maps season data to a season', () => {
+        const seasonData: SeasonData = [{
             title: 'Hungary',
             startDate: '2022-07-29T12:00:00Z',
             sessions: [
@@ -17,7 +17,7 @@ describe('session data mapping', () => {
             ]
         }];
 
-        const rounds = mapSessionDataToSeason(sessionData);
+        const rounds = mapSeasonDataToSeason(seasonData);
 
         expect(rounds).toEqual(new Season([
             new Round(
