@@ -1,16 +1,16 @@
 import {Session} from '../models/session';
 import React, {ReactElement} from 'react';
-import {FindNextSession} from '../use-cases/find-next-session';
+import {Round} from '../models/round';
 
 type SessionProps = {
-    sessions: Session[];
+    round: Round;
     date: Date;
 }
 
-export function SessionList({ sessions, date }: SessionProps) {
-    const nextSession = new FindNextSession(sessions).findNextSession(date);
-    const sessionsBefore = sessions.filter(({date}) => date.getTime() < nextSession.date.getTime());
-    const sessionsAfter = sessions.filter(({date}) => date.getTime() >= nextSession.date.getTime());
+export function SessionList({ round, date }: SessionProps) {
+    const nextSession = round.findNextSession(date);
+    const sessionsBefore = round.sessions.filter(({date}) => date.getTime() < nextSession.date.getTime());
+    const sessionsAfter = round.sessions.filter(({date}) => date.getTime() >= nextSession.date.getTime());
     return <>
         <h3>Sessions</h3>
         <table data-testid='sessions'>

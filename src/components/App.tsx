@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {FindNextSession} from '../use-cases/find-next-session';
 import {Header} from './Header';
 import {Footer} from './Footer';
 import {RoundInfo} from './RoundInfo';
@@ -16,7 +15,7 @@ type AppProps = {
 function App({ season, getDate, updateInterval }: AppProps) {
     const [date, setDate] = useState(getDate());
     const round = season.findNextRound(date);
-    const session = new FindNextSession(round.sessions).findNextSession(date);
+    const session = round.findNextSession(date);
 
     useEffect(() => {
         const interval = setInterval(() => setDate(getDate()), updateInterval);
