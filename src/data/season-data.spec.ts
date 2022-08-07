@@ -17,9 +17,9 @@ describe('season data mapping', () => {
             ]
         }];
 
-        const rounds = mapSeasonDataToSeason(seasonData);
+        const season = mapSeasonDataToSeason(seasonData);
 
-        expect(rounds).toEqual(new Season([
+        expect(season).toEqual(new Season([
             new Round(
             'Hungary',
             new Date('2022-07-29T12:00:00Z'),
