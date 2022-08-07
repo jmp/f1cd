@@ -17,6 +17,7 @@ export function SessionList({ round, date }: SessionProps) {
         <table>
             <tbody>
             { formatSessions(sessionsBefore, 'before') }
+            { formatSessions([nextSession], 'next') }
             { formatSessions(sessionsAfter, 'after') }
             </tbody>
         </table>

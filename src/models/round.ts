@@ -20,6 +20,6 @@ export class Round {
     }
 
     findSessionsAfter(date: Date): Session[] {
-        return this.sessions.filter(session => session.date.getTime() >= date.getTime());
+        return this.sessions.filter(session => session.date.getTime() > date.getTime());
     }
 }
