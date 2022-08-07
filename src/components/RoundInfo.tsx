@@ -8,8 +8,10 @@ type RoundInfoProps = {
 };
 
 export function RoundInfo({round, date}: RoundInfoProps) {
-    return <>
-        <h2 data-testid='round'>{round.title}</h2>
-        <SessionList round={round} date={date} />
-    </>
+    return (
+        <div data-testid='round-info'>
+            <h2 data-testid='round'>{round.title}</h2>
+            <SessionList round={round} date={date} />
+        </div>
+    );
 }

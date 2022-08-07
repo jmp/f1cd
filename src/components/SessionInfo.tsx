@@ -11,8 +11,10 @@ const countdown = new Countdown();
 
 export function SessionInfo({session, date}: CountdownProps) {
     const remainingTime = countdown.getRemainingTime(date, session.date);
-    return <>
-        <h3>Next Session</h3>
-        <p><span data-testid='session'>{session.title}</span> starts in <span data-testid='countdown'>{remainingTime}</span>.</p>
-    </>;
+    return (
+        <div data-testid='session-info'>
+            <h3>Next Session</h3>
+            <p><span data-testid='session'>{session.title}</span> starts in <span data-testid='countdown'>{remainingTime}</span>.</p>
+        </div>
+    );
 }

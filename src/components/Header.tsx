@@ -1,3 +1,7 @@
 export function Header() {
-    return <h1 data-testid='heading'>Countdown</h1>;
+    return (
+        <header data-testid='header'>
+            <h1 data-testid='heading'>Countdown</h1>
+        </header>
+    );
 }

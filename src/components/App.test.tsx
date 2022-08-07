@@ -18,6 +18,30 @@ describe('App', () => {
         )
     ]);
 
+    it('shows header', () => {
+        render(<App season={season} getDate={() => new Date()} updateInterval={0} />);
+
+        const header = screen.getByTestId('header');
+
+        expect(header).toBeInTheDocument();
+    });
+
+    it('shows round info', () => {
+        render(<App season={season} getDate={() => new Date()} updateInterval={0} />);
+
+        const roundInfo = screen.getByTestId('round-info');
+
+        expect(roundInfo).toBeInTheDocument();
+    })
+
+    it('shows session info', () => {
+        render(<App season={season} getDate={() => new Date()} updateInterval={0} />);
+
+        const sessionInfo = screen.getByTestId('session-info');
+
+        expect(sessionInfo).toBeInTheDocument();
+    });
+
     it('updates countdown', async () => {
         const mockGetDate = jest.fn().mockReturnValue(new Date('2022-01-06T09:56:56Z'));
 
