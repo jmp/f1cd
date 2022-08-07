@@ -11,16 +11,16 @@ export function SessionList({ round, date }: SessionProps) {
     const nextSession = round.findNextSession(date);
     const sessionsBefore = round.sessions.filter(({date}) => date.getTime() < nextSession.date.getTime());
     const sessionsAfter = round.sessions.filter(({date}) => date.getTime() >= nextSession.date.getTime());
-    return <>
+    return <div data-testid='session-list'>
         <h3 data-testid='session-list-heading'>Sessions</h3>
-        <table data-testid='sessions'>
+        <table>
             <tbody>
             { formatSessions(sessionsBefore, 'before') }
             { formatSessions(sessionsAfter, 'after') }
             </tbody>
         </table>
         <p id='tzinfo'>All times are {getTimezone()}</p>
-    </>;
+    </div>;
 }
 
 function formatSessions(sessions: Session[], className: string): ReactElement[] {

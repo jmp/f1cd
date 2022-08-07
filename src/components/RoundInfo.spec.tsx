@@ -26,7 +26,7 @@ describe('round info', () => {
     it('shows session list', () => {
         render(<RoundInfo round={round} date={new Date()} />);
 
-        const element = screen.getByTestId('sessions');
+        const element = screen.getByTestId('session-list');
 
         expect(element).toBeInTheDocument();
     });
