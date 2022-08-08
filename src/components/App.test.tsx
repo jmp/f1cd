@@ -8,7 +8,7 @@ import {aSession} from '../models/session.builder';
 describe('app', () => {
     const defaultProps = {
         season: aSeason().build(),
-        getDate: () => new Date(),
+        getDate: jest.fn().mockReturnValue(new Date()),
         updateInterval: 0
     };
 
@@ -22,7 +22,7 @@ describe('app', () => {
         render(<App {...defaultProps} />);
 
         expect(screen.getByTestId('body')).toBeInTheDocument();
-    })
+    });
 
     it('updates countdown', async () => {
         const season = aSeason()

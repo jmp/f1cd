@@ -23,7 +23,7 @@ export function SessionList({ round, date, session, setSession }: SessionProps) 
             { formatSessions(session, sessionsAfter, 'after', setSession) }
             </tbody>
         </table>
-        <p data-testid='session-list-tzinfo' className='small'>All times are {getTimezone()}</p>
+        <p data-testid='session-list-timezone' className='small'>All times are {getTimezone()}</p>
     </div>;
 }
 

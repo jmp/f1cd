@@ -47,7 +47,7 @@ describe('session list', () => {
             />
         );
 
-        const timezoneInfo = screen.getByTestId('session-list-tzinfo');
+        const timezoneInfo = screen.getByTestId('session-list-timezone');
 
         expect(timezoneInfo).toHaveTextContent(/All times are UTC[+-]\d+/);
     });
