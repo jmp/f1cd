@@ -5,6 +5,19 @@ import {aSession} from '../models/session.builder';
 import {aRound} from '../models/round.builder';
 
 describe('session list', () => {
+    it('shows a heading', () => {
+        render(
+            <SessionList
+                round={aRound().build()}
+                date={new Date()}
+                selectedSession={aSession().build()}
+                onSessionSelect={jest.fn()}
+            />
+        );
+
+        expect(screen.getByTestId('session-list-heading')).toBeInTheDocument();
+    });
+
     it('shows each session in the round', () => {
         const round = aRound()
             .session(aSession().title('Session 1').date(new Date('2022-01-01Z')))

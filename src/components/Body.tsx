@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Season} from '../models/season';
-import {RoundInfo} from './RoundInfo';
 import {SessionInfo} from './SessionInfo';
+import {SessionList} from './SessionList';
 
 type BodyProps = {
     season: Season;
@@ -12,14 +12,15 @@ export function Body({ season, date }: BodyProps) {
     const round = season.findNextRound(date);
     const [session, setSession] = useState(round.findNextSession(date));
     return (
-        <main data-testid='body' id='body'>
-            <RoundInfo
+        <main data-testid='body'>
+            <h2 data-testid='round-title'>{round.title}</h2>
+            <SessionInfo session={session} date={date} />
+            <SessionList
                 round={round}
                 date={date}
                 selectedSession={session}
                 onSessionSelect={setSession}
             />
-            <SessionInfo session={session} date={date} />
         </main>
     );
 }
