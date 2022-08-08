@@ -5,6 +5,12 @@ table {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+}
+
 tr:hover {
     background-color: #9999ff55;
 }
@@ -17,6 +23,10 @@ td {
     border-collapse: collapse;
     padding: 0.3em 0.5em 0.3em 0.5em;
     margin: 0;
+}
+
+td:last-child {
+    text-align: right;
 }
 
 .before {
