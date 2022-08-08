@@ -18,6 +18,12 @@ describe('app', () => {
         expect(screen.getByTestId('header')).toBeInTheDocument();
     });
 
+    it('shows round selector', () => {
+        render(<App {...defaultProps} />);
+
+        expect(screen.getByTestId('round-selector')).toBeInTheDocument();
+    });
+
     it('shows round info', () => {
         render(<App {...defaultProps} />);
 

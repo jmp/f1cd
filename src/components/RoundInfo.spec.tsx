@@ -4,12 +4,6 @@ import {RoundInfo} from './RoundInfo';
 import {aRound} from '../models/round.builder';
 
 describe('round info', () => {
-    it('shows round title', () => {
-        render(<RoundInfo round={aRound().title('Belgium').build()} date={new Date()} />);
-
-        expect(screen.getByTestId('round-title')).toHaveTextContent('Belgium');
-    });
-
     it('shows session info', () => {
         render(<RoundInfo round={aRound().build()} date={new Date()} />);
 

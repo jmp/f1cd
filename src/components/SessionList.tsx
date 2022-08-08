@@ -11,34 +11,39 @@ type SessionProps = {
 }
 
 export function SessionList({ round, date, session, setSession }: SessionProps) {
-    const nextSession = round.findNextSession(date);
-    const sessionsBefore = round.findSessionsBefore(nextSession.date);
-    const sessionsAfter = round.findSessionsAfter(nextSession.date);
     return <div data-testid='session-list'>
         <h3 data-testid='session-list-heading'>Sessions</h3>
         <table>
             <tbody>
-            { formatSessions(session, sessionsBefore, 'before', setSession) }
-            { formatSessions(session, [nextSession], 'next', setSession) }
-            { formatSessions(session, sessionsAfter, 'after', setSession) }
+            { formatSessions(session, round, date, setSession) }
             </tbody>
         </table>
         <p data-testid='session-list-timezone' className='small'>All times are {getTimezone()}</p>
     </div>;
 }
 
-function formatSessions(selectedSession: Session, sessions: Session[], className: string, onClick: (session: Session) => void): ReactElement[] {
-    return sessions.map(session => (
-        <tr
-            key={session.date.getTime()}
-            className={`${className} ${selectedSession === session ? 'selected' : ''}`}
-            onClick={() => onClick(session)}
-        >
-            <td>{session.title}</td>
-            <td>{formatDate(session.date)}</td>
-            <td>{formatTime(session.date)}</td>
-        </tr>
-    ))
+function formatSessions(selectedSession: Session, round: Round, date: Date, onClick: (session: Session) => void): ReactElement[] {
+    const pastSessions = round.findSessionsBefore(date);
+    return round.sessions.map(session => {
+        const classes = [];
+        if (pastSessions.includes(session)) {
+            classes.push('before');
+        }
+        if (session === selectedSession) {
+            classes.push('selected');
+        }
+        return (
+            <tr
+                key={session.date.getTime()}
+                className={classes.join(' ')}
+                onClick={() => onClick(session)}
+            >
+                <td>{session.title}</td>
+                <td>{formatDate(session.date)}</td>
+                <td>{formatTime(session.date)}</td>
+            </tr>
+        );
+    });
 }
 
 function formatDate(date: Date): string {

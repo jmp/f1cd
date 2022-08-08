@@ -3,6 +3,7 @@ import {Header} from './Header';
 import {RoundInfo} from './RoundInfo';
 import {Season} from '../models/season';
 import './App.css';
+import {RoundSelector} from './RoundSelector';
 
 type AppProps = {
     season: Season,
@@ -12,7 +13,7 @@ type AppProps = {
 
 function App({ season, getDate, updateInterval }: AppProps) {
     const [date, setDate] = useState(getDate());
-    const round = season.findNextRound(date);
+    const [round, setRound] = useState(season.findNextRound(getDate()));
 
     useEffect(() => {
         const interval = setInterval(() => setDate(getDate()), updateInterval);
@@ -21,7 +22,8 @@ function App({ season, getDate, updateInterval }: AppProps) {
 
     return <>
         <Header />
-        <RoundInfo round={round} date={date} />
+        <RoundSelector rounds={season.rounds} defaultRound={round} onSelect={setRound} />
+        <RoundInfo round={round} date={date} key={round.title} />
     </>;
 }
 
