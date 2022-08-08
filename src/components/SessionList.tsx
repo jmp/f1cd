@@ -15,7 +15,6 @@ export function SessionList({ round, date, selectedSession, onSessionSelect }: S
     const sessionsBefore = round.findSessionsBefore(nextSession.date);
     const sessionsAfter = round.findSessionsAfter(nextSession.date);
     return <div data-testid='session-list'>
-        <h3 data-testid='session-list-heading'>Sessions</h3>
         <table>
             <tbody>
             { formatSessions(selectedSession, sessionsBefore, 'before', onSessionSelect) }
