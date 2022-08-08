@@ -24,12 +24,6 @@ describe('app', () => {
         expect(screen.getByTestId('body')).toBeInTheDocument();
     })
 
-    it('shows a footer', () => {
-        render(<App {...defaultProps} />);
-
-        expect(screen.getByTestId('footer')).toBeInTheDocument();
-    });
-
     it('updates countdown', async () => {
         const season = aSeason()
             .round(aRound().session(aSession().date(new Date('2022-01-07T00:00:00Z'))))

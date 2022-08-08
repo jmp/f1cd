@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Header} from './Header';
-import {Footer} from './Footer';
 import {Body} from './Body';
 import {Season} from '../models/season';
 import './App.css';
@@ -22,7 +21,6 @@ function App({ season, getDate, updateInterval }: AppProps) {
     return <>
         <Header />
         <Body season={season} date={date} />
-        <Footer />
     </>;
 }
 
