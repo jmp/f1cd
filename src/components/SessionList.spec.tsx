@@ -10,8 +10,8 @@ describe('session list', () => {
             <SessionList
                 round={aRound().build()}
                 date={new Date()}
-                selectedSession={aSession().build()}
-                onSessionSelect={jest.fn()}
+                session={aSession().build()}
+                setSession={jest.fn()}
             />
         );
 
@@ -28,8 +28,8 @@ describe('session list', () => {
             <SessionList
                 round={round}
                 date={new Date()}
-                selectedSession={aSession().build()}
-                onSessionSelect={jest.fn()}
+                session={aSession().build()}
+                setSession={jest.fn()}
             />
         );
 
@@ -42,8 +42,8 @@ describe('session list', () => {
             <SessionList
                 round={aRound().build()}
                 date={new Date()}
-                selectedSession={aSession().build()}
-                onSessionSelect={jest.fn()}
+                session={aSession().build()}
+                setSession={jest.fn()}
             />
         );
 
@@ -59,8 +59,8 @@ describe('session list', () => {
             <SessionList
                 round={aRound().session(aSession().title('Select me!')).build()}
                 date={new Date()}
-                selectedSession={aSession().build()}
-                onSessionSelect={onSessionSelect}
+                session={aSession().build()}
+                setSession={onSessionSelect}
             />
         );
 

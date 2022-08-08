@@ -15,12 +15,7 @@ export function Body({ season, date }: BodyProps) {
         <main data-testid='body'>
             <h2 data-testid='round-title'>{round.title}</h2>
             <SessionInfo session={session} date={date} />
-            <SessionList
-                round={round}
-                date={date}
-                selectedSession={session}
-                onSessionSelect={setSession}
-            />
+            <SessionList {...{round, date, session, setSession}} />
         </main>
     );
 }

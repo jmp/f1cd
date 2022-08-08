@@ -6,11 +6,11 @@ import './SessionList.css';
 type SessionProps = {
     round: Round;
     date: Date;
-    selectedSession: Session;
-    onSessionSelect: (session: Session) => void;
+    session: Session;
+    setSession: (session: Session) => void;
 }
 
-export function SessionList({ round, date, selectedSession, onSessionSelect }: SessionProps) {
+export function SessionList({ round, date, session, setSession }: SessionProps) {
     const nextSession = round.findNextSession(date);
     const sessionsBefore = round.findSessionsBefore(nextSession.date);
     const sessionsAfter = round.findSessionsAfter(nextSession.date);
@@ -18,9 +18,9 @@ export function SessionList({ round, date, selectedSession, onSessionSelect }: S
         <h3 data-testid='session-list-heading'>Sessions</h3>
         <table>
             <tbody>
-            { formatSessions(selectedSession, sessionsBefore, 'before', onSessionSelect) }
-            { formatSessions(selectedSession, [nextSession], 'next', onSessionSelect) }
-            { formatSessions(selectedSession, sessionsAfter, 'after', onSessionSelect) }
+            { formatSessions(session, sessionsBefore, 'before', setSession) }
+            { formatSessions(session, [nextSession], 'next', setSession) }
+            { formatSessions(session, sessionsAfter, 'after', setSession) }
             </tbody>
         </table>
         <p data-testid='session-list-tzinfo' className='small'>All times are {getTimezone()}</p>
