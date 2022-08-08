@@ -18,10 +18,10 @@ describe('app', () => {
         expect(screen.getByTestId('header')).toBeInTheDocument();
     });
 
-    it('shows a body', () => {
+    it('shows round info', () => {
         render(<App {...defaultProps} />);
 
-        expect(screen.getByTestId('body')).toBeInTheDocument();
+        expect(screen.getByTestId('round-info')).toBeInTheDocument();
     });
 
     it('updates countdown', async () => {
