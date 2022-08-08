@@ -3,11 +3,13 @@ table {
     border-radius: 0.7em;
     border-spacing: 0;
     cursor: pointer;
+    min-width: 240pt;
 }
 
 @media only screen and (max-width: 600px) {
     table {
         width: 100%;
+        min-width: revert;
     }
 }
 

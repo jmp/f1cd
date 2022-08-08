@@ -4,6 +4,7 @@
     padding: 0.5em 0;
     display: inline-block;
     text-align: center;
+    min-width: 240pt;
 }
 
 .session div {
@@ -13,6 +14,7 @@
 @media only screen and (max-width: 600px) {
     .session {
         width: 100%;
+        min-width: revert;
     }
 }
 
