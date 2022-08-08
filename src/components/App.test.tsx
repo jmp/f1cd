@@ -8,7 +8,7 @@ import {aSession} from '../models/session.builder';
 describe('app', () => {
     const defaultProps = {
         season: aSeason().build(),
-        getDate: jest.fn().mockReturnValue(new Date()),
+        getDate: () => new Date(),
         updateInterval: 0
     };
 
