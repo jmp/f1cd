@@ -9,28 +9,28 @@ describe('finding the next round after a given date', () => {
         const season = aSeason()
             .round(
                 aRound()
-                    .startDate(new Date('2022-01-01T12:00:00Z'))
-                    .session(aSession().date(new Date('2022-01-01T12:00:00Z')))
+                    .startDate(new Date('2022-01-01T12:00Z'))
+                    .session(aSession().date(new Date('2022-01-01T12:00Z')))
             )
             .round(
                 aRound()
                     .title('Correct round')
-                    .startDate(new Date('2022-01-07T12:00:00Z'))
-                    .session(aSession().title('Correct session').date(new Date('2022-01-07T12:00:00Z')))
+                    .startDate(new Date('2022-01-07T12:00Z'))
+                    .session(aSession().title('Correct session').date(new Date('2022-01-07T12:00Z')))
             )
             .round(
                 aRound()
-                    .startDate(new Date('2022-01-14T12:00:00Z'))
-                    .session(aSession().date(new Date('2022-01-14T12:00:00Z')))
+                    .startDate(new Date('2022-01-14T12:00Z'))
+                    .session(aSession().date(new Date('2022-01-14T12:00Z')))
             )
             .build();
 
-        const nextRound = season.findNextRound(new Date('2022-01-05T12:00:00Z'));
+        const nextRound = season.findNextRound(new Date('2022-01-05T12:00Z'));
 
         expect(nextRound).toEqual(new Round(
             'Correct round',
-            new Date('2022-01-07T12:00:00Z'),
-            [new Session('Correct session', new Date('2022-01-07T12:00:00Z'))]
+            new Date('2022-01-07T12:00Z'),
+            [new Session('Correct session', new Date('2022-01-07T12:00Z'))]
         ));
     });
 
@@ -38,23 +38,23 @@ describe('finding the next round after a given date', () => {
         const season = aSeason()
             .round(
                 aRound()
-                    .startDate(new Date('2022-01-01T12:00:00Z'))
-                    .session(aSession().date(new Date('2022-01-01T12:00:00Z')))
+                    .startDate(new Date('2022-01-01T12:00Z'))
+                    .session(aSession().date(new Date('2022-01-01T12:00Z')))
             )
             .round(
                 aRound()
                     .title('Correct round')
-                    .startDate(new Date('2022-01-07T12:00:00Z'))
-                    .session(aSession().title('Correct session').date(new Date('2022-01-07T12:00:00Z')))
+                    .startDate(new Date('2022-01-07T12:00Z'))
+                    .session(aSession().title('Correct session').date(new Date('2022-01-07T12:00Z')))
             )
             .build();
 
-        const nextRound = season.findNextRound(new Date('2022-01-14T12:00:00Z'));
+        const nextRound = season.findNextRound(new Date('2022-01-14T12:00Z'));
 
         expect(nextRound).toEqual(new Round(
             'Correct round',
-            new Date('2022-01-07T12:00:00Z'),
-            [new Session('Correct session', new Date('2022-01-07T12:00:00Z'))]
+            new Date('2022-01-07T12:00Z'),
+            [new Session('Correct session', new Date('2022-01-07T12:00Z'))]
         ));
     });
 });

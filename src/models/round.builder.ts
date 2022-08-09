@@ -37,6 +37,6 @@ export class RoundBuilder {
 export function aRound(): RoundBuilder {
     return new RoundBuilder()
         .title('Hungary')
-        .startDate(new Date('2022-07-29T12:00:00Z'))
+        .startDate(new Date('2022-07-29T12:00Z'))
         .defaultSession(aSession());
 }

@@ -22,5 +22,5 @@ export class SessionBuilder {
 export function aSession(): SessionBuilder {
     return new SessionBuilder()
         .title('Practice 1')
-        .date(new Date('2022-01-01T00:00:00Z'));
+        .date(new Date('2022-01-01T00:00Z'));
 }

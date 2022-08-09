@@ -32,7 +32,7 @@ describe('app', () => {
 
     it('updates countdown', async () => {
         const season = aSeason()
-            .round(aRound().session(aSession().date(new Date('2022-01-07T00:00:00Z'))))
+            .round(aRound().session(aSession().date(new Date('2022-01-07T00:00Z'))))
             .build();
         const mockGetDate = jest.fn().mockReturnValue(new Date('2022-01-06T09:56:56Z'));
 

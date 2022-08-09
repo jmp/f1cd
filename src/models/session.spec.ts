@@ -4,17 +4,17 @@ describe('session', () => {
     describe('remaining time to the beginning of the session', () => {
         it('is zero seconds when there is no time remaining', () => {
             const session = aSession()
-                .date(new Date('2022-01-01T00:00:00Z'))
+                .date(new Date('2022-01-01T00:00Z'))
                 .build();
 
-            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00:00Z'));
+            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00Z'));
 
             expect(remainingTime).toEqual('0 seconds');
         });
 
         it('is zero seconds when the session has already begun', () => {
             const session = aSession()
-                .date(new Date('2022-01-01T00:00:00Z'))
+                .date(new Date('2022-01-01T00:00Z'))
                 .build();
 
             const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00:30Z'));
@@ -27,7 +27,7 @@ describe('session', () => {
                 .date(new Date('2022-01-01T00:00:05Z'))
                 .build();
 
-            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00:00Z'));
+            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00Z'));
 
             expect(remainingTime).toEqual('5 seconds');
         });
@@ -37,7 +37,7 @@ describe('session', () => {
                 .date(new Date('2022-01-01T00:04:05Z'))
                 .build();
 
-            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00:00Z'));
+            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00Z'));
 
             expect(remainingTime).toEqual('4 minutes 5 seconds');
         });
@@ -47,7 +47,7 @@ describe('session', () => {
                 .date(new Date('2022-01-01T03:04:05Z'))
                 .build();
 
-            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00:00Z'));
+            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00Z'));
 
             expect(remainingTime).toEqual('3 hours 4 minutes 5 seconds');
         });
@@ -57,7 +57,7 @@ describe('session', () => {
                 .date(new Date('2022-01-03T03:04:05Z'))
                 .build();
 
-            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00:00Z'));
+            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00Z'));
 
             expect(remainingTime).toEqual('2 days 3 hours 4 minutes 5 seconds');
         });
@@ -67,7 +67,7 @@ describe('session', () => {
                 .date(new Date('2022-01-01T00:00:01Z'))
                 .build();
 
-            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00:00Z'));
+            const remainingTime = session.getRemainingTime(new Date('2022-01-01T00:00Z'));
 
             expect(remainingTime).toEqual('1 second');
         });
