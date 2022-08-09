@@ -31,7 +31,7 @@ describe('app', () => {
     it('updates countdown', async () => {
         const getDate = jest.fn().mockReturnValue(new Date('2000-01-01T00:00:00Z'));
 
-        render(<App {...defaultProps} season={aSeason().build()} getDate={getDate} />);
+        render(<App {...defaultProps} getDate={getDate} />);
 
         const remainingTime = screen.getByTestId('remaining-time');
         const previousContent = remainingTime.textContent;
