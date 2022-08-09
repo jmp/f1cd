@@ -55,5 +55,9 @@ function formatTime(date: Date): string {
 }
 
 function getTimezone(): string {
-    return `UTC${new Date().toString().match(/([-+]\d+)\s/)![1]}`;
+    const offset = new Date()
+        .toString()
+        .replace(/.+([-+]\d\d)(\d\d).+/, '$1:$2')
+        .replace('-', '−');
+    return `UTC${offset}`;
 }
