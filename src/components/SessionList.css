@@ -12,14 +12,6 @@ table {
     }
 }
 
-tr:hover {
-    background-color: #9999ff55;
-}
-
-tr:active {
-    background-color: #9999ff22;
-}
-
 td {
     font-size: 13pt;
     border-collapse: collapse;
