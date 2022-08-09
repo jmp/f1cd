@@ -34,12 +34,10 @@ describe('app', () => {
         render(<App {...defaultProps} season={aSeason().build()} getDate={getDate} />);
 
         const remainingTime = screen.getByTestId('remaining-time');
-        const previousContent = remainingTime.textContent!;
+        const previousContent = remainingTime.textContent;
 
         getDate.mockReturnValue(new Date('2000-01-01T00:00:01Z'));
 
-        await waitFor(() => {
-            expect(remainingTime).not.toHaveTextContent(previousContent);
-        });
+        await waitFor(() => expect(remainingTime.textContent).not.toEqual(previousContent));
     });
 });
