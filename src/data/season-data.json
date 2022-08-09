@@ -1,5 +1,317 @@
 [
   {
+    "title": "Bahrain",
+    "startDate": "2022-03-18T12:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-03-18T12:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-03-18T15:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-03-19T12:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-03-19T15:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-03-20T15:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Saudi Arabia",
+    "startDate": "2022-03-25T14:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-03-25T14:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-03-25T17:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-03-26T14:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-03-26T17:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-03-27T17:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Australia",
+    "startDate": "2022-04-08T03:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-04-08T03:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-04-08T06:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-04-09T03:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-04-09T06:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-04-10T05:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Emilia Romagna",
+    "startDate": "2022-04-22T11:30:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-04-22T11:30:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-04-22T15:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-04-23T10:30:00Z"
+      },
+      {
+        "title": "Sprint",
+        "date": "2022-04-23T14:30:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-04-24T13:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Miami",
+    "startDate": "2022-05-06T18:30:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-05-06T18:30:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-05-06T21:30:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-05-07T17:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-05-07T20:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-05-08T19:30:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Spain",
+    "startDate": "2022-05-20T12:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-05-20T12:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-05-20T15:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-05-21T11:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-05-21T14:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-05-22T13:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Monaco",
+    "startDate": "2022-05-27T12:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-05-27T12:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-05-27T15:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-05-28T11:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-05-28T14:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-05-29T13:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Azerbaijan",
+    "startDate": "2022-06-10T11:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-06-10T11:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-06-10T14:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-06-11T11:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-06-11T14:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-06-12T11:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Canada",
+    "startDate": "2022-06-17T18:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-06-17T18:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-06-17T21:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-06-18T17:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-06-18T20:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-06-19T18:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Great Britain",
+    "startDate": "2022-07-01T12:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-07-01T12:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-07-01T15:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-07-02T11:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-07-02T14:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-07-03T14:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Austria",
+    "startDate": "2022-07-08T11:30:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-07-08T11:30:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-07-08T15:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-07-09T10:30:00Z"
+      },
+      {
+        "title": "Sprint",
+        "date": "2022-07-09T14:30:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-07-10T13:00:00Z"
+      }
+    ]
+  },
+  {
+    "title": "France",
+    "startDate": "2022-07-22T12:00:00Z",
+    "sessions": [
+      {
+        "title": "Practice 1",
+        "date": "2022-07-22T12:00:00Z"
+      },
+      {
+        "title": "Practice 2",
+        "date": "2022-07-22T15:00:00Z"
+      },
+      {
+        "title": "Practice 3",
+        "date": "2022-07-23T11:00:00Z"
+      },
+      {
+        "title": "Qualifying",
+        "date": "2022-07-23T14:00:00Z"
+      },
+      {
+        "title": "Race",
+        "date": "2022-07-24T13:00:00Z"
+      }
+    ]
+  },
+  {
     "title": "Hungary",
     "startDate": "2022-07-29T12:00:00Z",
     "sessions": [
@@ -52,7 +364,7 @@
     ]
   },
   {
-    "title": "The Netherlands",
+    "title": "Netherlands",
     "startDate": "2022-09-02T12:00:00Z",
     "sessions": [
       {
