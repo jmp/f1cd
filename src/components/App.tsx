@@ -4,19 +4,20 @@ import {RoundInfo} from './RoundInfo';
 import {Season} from '../models/season';
 import './App.css';
 import {RoundSelector} from './RoundSelector';
+import {Clock} from '../models/clock';
 
 type AppProps = {
     season: Season,
-    getDate: () => Date,
+    clock: Clock,
     updateInterval: number
 }
 
-function App({ season, getDate, updateInterval }: AppProps) {
-    const [date, setDate] = useState(getDate());
-    const [round, setRound] = useState(season.findNextRound(getDate()));
+function App({ season, clock, updateInterval }: AppProps) {
+    const [date, setDate] = useState(clock.getDate());
+    const [round, setRound] = useState(season.findNextRound(clock.getDate()));
 
     useEffect(() => {
-        const interval = setInterval(() => setDate(getDate()), updateInterval);
+        const interval = setInterval(() => setDate(clock.getDate()), updateInterval);
         return () => clearInterval(interval);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 

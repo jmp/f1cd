@@ -4,11 +4,15 @@ import App from './App';
 import {aSeason} from '../models/season.builder';
 
 describe('app', () => {
-    const defaultProps = {
-        season: aSeason().build(),
-        getDate: () => new Date(),
-        updateInterval: 0
-    };
+    let defaultProps: object;
+
+    beforeEach(() => {
+       defaultProps = {
+           season: aSeason().build(),
+           clock: { getDate: jest.fn().mockReturnValue(new Date()) },
+           updateInterval: 0
+       };
+    });
 
     it('shows a header', () => {
         render(<App {...defaultProps} />);
@@ -29,14 +33,16 @@ describe('app', () => {
     });
 
     it('updates countdown', async () => {
-        const getDate = jest.fn().mockReturnValue(new Date('2000-01-01T00:00:00Z'));
+        const clock = {
+            getDate: jest.fn().mockReturnValue(new Date('2000-01-01T00:00:00Z'))
+        };
 
-        render(<App {...defaultProps} getDate={getDate} />);
+        render(<App {...defaultProps} clock={clock} />);
 
         const remainingTime = screen.getByTestId('remaining-time');
         const previousContent = remainingTime.textContent;
 
-        getDate.mockReturnValue(new Date('2000-01-01T00:00:01Z'));
+        clock.getDate.mockReturnValue(new Date('2000-01-01T00:00:01Z'));
 
         await waitFor(() => expect(remainingTime.textContent).not.toEqual(previousContent));
     });
