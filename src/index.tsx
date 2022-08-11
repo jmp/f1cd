@@ -9,6 +9,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <App season={season} clock={new Clock()} updateInterval={1000} />
+        <App season={season} clock={new Clock()} />
     </React.StrictMode>
 );

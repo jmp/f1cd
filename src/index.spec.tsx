@@ -23,11 +23,7 @@ describe('index', () => {
 
         expect(mockRender).toHaveBeenCalledWith(
             <React.StrictMode>
-                <App
-                    season={expect.anything()}
-                    clock={expect.anything()}
-                    updateInterval={expect.anything()}
-                />
+                <App season={expect.anything()} clock={expect.anything()} />
             </React.StrictMode>
         );
     });
