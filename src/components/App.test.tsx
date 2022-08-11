@@ -2,9 +2,15 @@ import React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import App from './App';
 import {aSeason} from '../models/season.builder';
+import {Season} from '../models/season';
+import {Clock} from '../models/clock';
 
 describe('app', () => {
-    let defaultProps: object;
+    let defaultProps: {
+        season: Season;
+        clock: Clock;
+        updateInterval: number;
+    };
 
     beforeEach(() => {
        defaultProps = {
