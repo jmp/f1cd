@@ -547,27 +547,27 @@
   },
   {
     "title": "Abu Dhabi",
-    "startDate": "2022-11-18T10:00Z",
+    "startDate": "2022-11-18T09:00Z",
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2022-11-18T10:00Z"
+        "date": "2022-11-18T09:00Z"
       },
       {
         "title": "Practice 2",
-        "date": "2022-11-18T13:00Z"
+        "date": "2022-11-18T12:00Z"
       },
       {
         "title": "Practice 3",
-        "date": "2022-11-19T11:00Z"
+        "date": "2022-11-19T10:00Z"
       },
       {
         "title": "Qualifying",
-        "date": "2022-11-19T14:00Z"
+        "date": "2022-11-19T13:00Z"
       },
       {
         "title": "Race",
-        "date": "2022-11-20T13:00Z"
+        "date": "2022-11-20T12:00Z"
       }
     ]
   }
