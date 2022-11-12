@@ -521,53 +521,53 @@
   },
   {
     "title": "Brazil",
-    "startDate": "2022-11-11T14:30Z",
+    "startDate": "2022-11-11T15:30Z",
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2022-11-11T14:30Z"
+        "date": "2022-11-11T15:30Z"
       },
       {
         "title": "Qualifying",
-        "date": "2022-11-11T18:00Z"
+        "date": "2022-11-11T19:00Z"
       },
       {
         "title": "Practice 2",
-        "date": "2022-11-12T14:30Z"
+        "date": "2022-11-12T15:30Z"
       },
       {
         "title": "Sprint",
-        "date": "2022-11-12T18:30Z"
+        "date": "2022-11-12T19:30Z"
       },
       {
         "title": "Race",
-        "date": "2022-11-33T17:00Z"
+        "date": "2022-11-13T18:00Z"
       }
     ]
   },
   {
     "title": "Abu Dhabi",
-    "startDate": "2022-11-18T09:00Z",
+    "startDate": "2022-11-18T10:00Z",
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2022-11-18T09:00Z"
+        "date": "2022-11-18T10:00Z"
       },
       {
         "title": "Practice 2",
-        "date": "2022-11-18T12:00Z"
+        "date": "2022-11-18T13:00Z"
       },
       {
         "title": "Practice 3",
-        "date": "2022-11-19T10:00Z"
+        "date": "2022-11-19T11:00Z"
       },
       {
         "title": "Qualifying",
-        "date": "2022-11-19T13:00Z"
+        "date": "2022-11-19T14:00Z"
       },
       {
         "title": "Race",
-        "date": "2022-11-20T12:00Z"
+        "date": "2022-11-20T13:00Z"
       }
     ]
   }
