@@ -1,8 +1,7 @@
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import {aRound} from '../models/round.builder';
 import React from 'react';
 import {RoundSelector} from './RoundSelector';
-import userEvent from '@testing-library/user-event';
 
 describe('round selector', () => {
     it('has the default round selected by default', () => {
@@ -24,8 +23,7 @@ describe('round selector', () => {
 
         render(<RoundSelector rounds={[round1, round2]} defaultRound={round1} onSelect={onSelect} />);
 
-        const roundSelector = screen.getByTestId('round-selector');
-        await userEvent.selectOptions(roundSelector, screen.getByRole('option', {name: 'Select me!'}));
+        fireEvent.change(screen.getByTestId('round-selector'), { target: { value: 1 } });
 
         expect(onSelect).toHaveBeenCalledWith(aRound().title('Select me!').build());
     });
