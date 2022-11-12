@@ -17,7 +17,7 @@ function App({ season, clock }: AppProps) {
     return <>
         <Header />
         <RoundSelector rounds={season.rounds} defaultRound={round} onSelect={setRound} />
-        <RoundInfo round={round} clock={new Clock()} updateInterval={1000} key={round.title} />
+        <RoundInfo round={round} clock={clock} updateInterval={1000} key={round.title} />
     </>;
 }
 
