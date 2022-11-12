@@ -5,7 +5,6 @@ import seasonData from './season-data.json';
 
 export type SeasonData = {
     title: string;
-    startDate: string;
     sessions: {
         title: string;
         date: string;
@@ -14,11 +13,10 @@ export type SeasonData = {
 
 export function mapSeasonDataToSeason(seasonData: SeasonData): Season {
     return new Season(
-        seasonData.map(({title, startDate, sessions}) => new Round(
-            title,
-            new Date(startDate),
-            sessions.map(({title, date}) => new Session(title, new Date(date)))
-        ))
+        seasonData.map(({title, sessions}) => new Round(title, sessions.map(({
+                                                                                 title,
+                                                                                 date
+                                                                             }) => new Session(title, new Date(date)))))
     );
 }
 

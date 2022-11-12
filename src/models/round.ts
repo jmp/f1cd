@@ -1,11 +1,20 @@
 import {Session} from './session';
 
 export class Round {
+    readonly startDate: Date;
+
     constructor(
         readonly title: string,
-        readonly startDate: Date,
         readonly sessions: Session[]
-    ) {}
+    ) {
+        let startDate = sessions[0].date;
+        sessions.forEach(({ date }) => {
+            if (date.getTime() <= startDate.getTime()) {
+                startDate = date;
+            }
+        });
+        this.startDate = startDate;
+    }
 
     findNextSession(fromDate: Date): Session {
         const session = this.sessions.find(({date}) => fromDate.getTime() <= date.getTime());

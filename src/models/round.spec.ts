@@ -3,6 +3,16 @@ import {aRound} from './round.builder';
 import {aSession} from './session.builder';
 
 describe('round', () => {
+    it('has a start date equal to the date of the first session', () => {
+        const round = aRound()
+            .session(aSession().date(new Date('2022-01-03Z')))
+            .session(aSession().date(new Date('2022-01-01Z')))
+            .session(aSession().date(new Date('2022-01-02Z')))
+            .build();
+
+        expect(round.startDate).toEqual(new Date('2022-01-01Z'));
+    });
+
     describe('finding the next session', () => {
         it('finds the first session after the given date', () => {
             const round = aRound()
