@@ -6,11 +6,13 @@ import {aRound} from '../models/round.builder';
 
 describe('session list', () => {
     it('shows a heading', () => {
+        const round = aRound().build();
+
         render(
             <SessionList
-                round={aRound().build()}
+                round={round}
                 date={new Date()}
-                session={aSession().build()}
+                session={round.sessions[0]}
                 setSession={jest.fn()}
             />
         );
@@ -28,7 +30,7 @@ describe('session list', () => {
             <SessionList
                 round={round}
                 date={new Date()}
-                session={aSession().build()}
+                session={round.sessions[0]}
                 setSession={jest.fn()}
             />
         );
@@ -54,12 +56,15 @@ describe('session list', () => {
 
     it('calls the selection handler when selecting a list item', () => {
         const onSessionSelect = jest.fn();
+        const round = aRound()
+            .session(aSession().title('Select me!'))
+            .build();
 
         render(
             <SessionList
-                round={aRound().session(aSession().title('Select me!')).build()}
+                round={round}
                 date={new Date()}
-                session={aSession().build()}
+                session={round.sessions[0]}
                 setSession={onSessionSelect}
             />
         );
