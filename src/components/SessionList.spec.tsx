@@ -37,7 +37,7 @@ describe('session list', () => {
         expect(screen.getByText('Session 2')).toBeInTheDocument();
     });
 
-    it('shows info about the timezone', () => {
+    it('shows the timezone', () => {
         render(
             <SessionList
                 round={aRound().build()}
