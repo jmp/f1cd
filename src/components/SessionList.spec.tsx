@@ -20,8 +20,8 @@ describe('session list', () => {
 
     it('shows each session in the round', () => {
         const round = aRound()
-            .session(aSession().title('Session 1').date(new Date('2022-01-01Z')))
-            .session(aSession().title('Session 2').date(new Date('2022-01-07Z')))
+            .session(aSession().title('Session 1'))
+            .session(aSession().title('Session 2'))
             .build();
 
         render(

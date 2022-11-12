@@ -34,7 +34,7 @@ function formatSessions(selectedSession: Session, round: Round, date: Date, onCl
         }
         return (
             <tr
-                key={session.date.getTime()}
+                key={session.title}
                 className={classes.join(' ')}
                 onClick={() => onClick(session)}
             >
