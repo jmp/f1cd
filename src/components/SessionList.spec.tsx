@@ -3,6 +3,7 @@ import {render, screen} from '@testing-library/react';
 import {SessionList} from './SessionList';
 import {aSession} from '../models/session.builder';
 import {aRound, aRoundWithTwoSessions} from '../models/round.builder';
+import {Session} from '../models/session';
 
 describe('session list', () => {
     it('shows a heading', () => {
@@ -51,24 +52,20 @@ describe('session list', () => {
     });
 
     it('calls the selection handler when selecting a list item', () => {
-        const onSessionSelect = jest.fn();
-        const round = aRound()
-            .session(aSession().title('Select me!'))
-            .build();
+        const round = aRound().build();
+        const setSession = jest.fn();
 
         render(
             <SessionList
                 round={round}
                 date={new Date()}
                 session={round.sessions[0]}
-                setSession={onSessionSelect}
+                setSession={setSession}
             />
         );
 
-        screen.getByText('Select me!').click();
+        screen.getByTestId('session-list-item').click();
 
-        expect(onSessionSelect).toHaveBeenCalledWith(
-            aSession().title('Select me!').build()
-        );
+        expect(setSession).toHaveBeenCalledWith(expect.any(Session));
     });
 });
