@@ -11,4 +11,11 @@ jobs:
       - uses: actions/upload-pages-artifact@v1
         with:
           path: 'build'
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/deploy-pages@v1
