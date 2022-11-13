@@ -33,3 +33,9 @@ export function aRound(): RoundBuilder {
         .title('Hungary')
         .defaultSession(aSession());
 }
+
+export function aRoundWithTwoSessions(): RoundBuilder {
+    return aRound()
+        .session(aSession())
+        .session(aSession());
+}

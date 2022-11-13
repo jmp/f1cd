@@ -34,6 +34,7 @@ function formatSessions(selectedSession: Session, round: Round, date: Date, onCl
         }
         return (
             <tr
+                data-testid='session-list-item'
                 key={session.title}
                 className={classes.join(' ')}
                 onClick={() => onClick(session)}

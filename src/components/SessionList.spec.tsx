@@ -2,7 +2,7 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {SessionList} from './SessionList';
 import {aSession} from '../models/session.builder';
-import {aRound} from '../models/round.builder';
+import {aRound, aRoundWithTwoSessions} from '../models/round.builder';
 
 describe('session list', () => {
     it('shows a heading', () => {
@@ -21,10 +21,7 @@ describe('session list', () => {
     });
 
     it('shows each session in the round', () => {
-        const round = aRound()
-            .session(aSession().title('Session 1'))
-            .session(aSession().title('Session 2'))
-            .build();
+        const round = aRoundWithTwoSessions().build();
 
         render(
             <SessionList
@@ -35,8 +32,7 @@ describe('session list', () => {
             />
         );
 
-        expect(screen.getByText('Session 1')).toBeInTheDocument();
-        expect(screen.getByText('Session 2')).toBeInTheDocument();
+        expect(screen.getAllByTestId('session-list-item')).toHaveLength(2);
     });
 
     it('shows the timezone', () => {
