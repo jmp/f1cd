@@ -18,7 +18,7 @@ describe('session list', () => {
             />
         );
 
-        expect(screen.getByTestId('session-list-heading')).toBeInTheDocument();
+        expect(screen.getByTestId('session-list-heading')).not.toBeNull();
     });
 
     it('shows each session in the round', () => {
@@ -48,7 +48,7 @@ describe('session list', () => {
 
         const timezoneInfo = screen.getByTestId('session-list-timezone');
 
-        expect(timezoneInfo).toHaveTextContent(/All times are UTC[+-]\d+/);
+        expect(timezoneInfo.textContent).toMatch(/All times are UTC[+-]\d+/);
     });
 
     it('calls the selection handler when selecting a list item', () => {

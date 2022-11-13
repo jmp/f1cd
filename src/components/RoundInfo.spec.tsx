@@ -8,13 +8,13 @@ describe('round info', () => {
     it('shows session info', () => {
         render(<RoundInfo round={aRound().build()} clock={new Clock()} updateInterval={0} />);
 
-        expect(screen.getByTestId('session-info')).toBeInTheDocument();
+        expect(screen.getByTestId('session-info')).not.toBeNull();
     });
 
     it('shows session list', () => {
         render(<RoundInfo round={aRound().build()} clock={new Clock()} updateInterval={0} />);
 
-        expect(screen.getByTestId('session-list')).toBeInTheDocument();
+        expect(screen.getByTestId('session-list')).not.toBeNull();
     });
 
     it('updates countdown', async () => {

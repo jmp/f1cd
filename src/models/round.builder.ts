@@ -36,6 +36,6 @@ export function aRound(): RoundBuilder {
 
 export function aRoundWithTwoSessions(): RoundBuilder {
     return aRound()
-        .session(aSession())
-        .session(aSession());
+        .session(aSession().title('Practice 1'))
+        .session(aSession().title('Practice 2'));
 }

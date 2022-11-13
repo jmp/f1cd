@@ -11,12 +11,12 @@ describe('session info', () => {
 
         const sessionTitle = screen.getByTestId('session-title');
 
-        expect(sessionTitle).toHaveTextContent('Hungary');
+        expect(sessionTitle.textContent).toEqual('Hungary');
     });
 
     it('shows the remaining time until the session starts', () => {
         render(<SessionInfo session={aSession().build()} date={new Date()} />);
 
-        expect(screen.getByTestId('remaining-time')).toBeInTheDocument();
+        expect(screen.getByTestId('remaining-time')).not.toBeNull();
     });
 });

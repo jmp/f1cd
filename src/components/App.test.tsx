@@ -21,18 +21,18 @@ describe('app', () => {
     it('shows a header', () => {
         render(<App {...defaultProps} />);
 
-        expect(screen.getByTestId('header')).toBeInTheDocument();
+        expect(screen.getByTestId('header')).not.toBeNull();
     });
 
     it('shows round selector', () => {
         render(<App {...defaultProps} />);
 
-        expect(screen.getByTestId('round-selector')).toBeInTheDocument();
+        expect(screen.getByTestId('round-selector')).not.toBeNull();
     });
 
     it('shows round info', () => {
         render(<App {...defaultProps} />);
 
-        expect(screen.getByTestId('round-info')).toBeInTheDocument();
+        expect(screen.getByTestId('round-info')).not.toBeNull();
     });
 });
