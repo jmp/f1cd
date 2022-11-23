@@ -46,7 +46,7 @@ describe('finding the next round after a given date', () => {
             .round(aRound().session(aSession().date(new Date('2022-09-02T12:00Z'))))
             .build();
 
-        const nextRound = season.findNextRound(new Date('2022-08-27T09:00Z'));
+        const nextRound = season.findNextRound(new Date('2022-08-26T09:00Z'));
 
         expect(nextRound).toEqual(new Round('Correct round', [new Session('Correct session', new Date('2022-08-26T12:00Z'))]));
     });

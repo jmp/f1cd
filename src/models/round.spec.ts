@@ -5,12 +5,22 @@ import {aSession} from './session.builder';
 describe('round', () => {
     it('has a start date equal to the date of the first session', () => {
         const round = aRound()
-            .session(aSession().date(new Date('2022-01-03Z')))
-            .session(aSession().date(new Date('2022-01-01Z')))
-            .session(aSession().date(new Date('2022-01-02Z')))
+            .session(aSession().date(new Date('2022-01-03T12:00Z')))
+            .session(aSession().date(new Date('2022-01-01T12:00Z')))
+            .session(aSession().date(new Date('2022-01-02T12:00Z')))
             .build();
 
-        expect(round.startDate).toEqual(new Date('2022-01-01Z'));
+        expect(round.startDate).toEqual(new Date('2022-01-01T00:00Z'));
+    });
+
+    it('has an end date equal to the date following the last session', () => {
+        const round = aRound()
+            .session(aSession().date(new Date('2022-01-01T12:00Z')))
+            .session(aSession().date(new Date('2022-01-03T12:00Z')))
+            .session(aSession().date(new Date('2022-01-02T12:00Z')))
+            .build();
+
+        expect(round.endDate).toEqual(new Date('2022-01-04T00:00Z'));
     });
 
     describe('finding the next session', () => {
