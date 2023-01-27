@@ -32,9 +32,7 @@ describe('round', () => {
                 .build();
             const nextSession = round.findNextSession(new Date('2022-01-05T12:00Z'));
 
-            expect(nextSession).toEqual(
-                new Session(expect.anything(), new Date('2022-01-07T12:00Z'))
-            );
+            expect(nextSession.date).toEqual(new Date('2022-01-07T12:00Z'));
         });
 
         it('finds the last session when there are no sessions after the given date', () => {
@@ -44,9 +42,7 @@ describe('round', () => {
                 .build();
             const nextSession = round.findNextSession(new Date('2022-01-14T12:00Z'));
 
-            expect(nextSession).toEqual(
-                new Session(expect.anything(), new Date('2022-01-07T12:00Z'))
-            );
+            expect(nextSession.date).toEqual(new Date('2022-01-07T12:00Z'));
         });
     });
 
