@@ -13,10 +13,10 @@ export type SeasonData = {
 
 export function mapSeasonDataToSeason(seasonData: SeasonData): Season {
     return new Season(
-        seasonData.map(({title, sessions}) => new Round(title, sessions.map(({
-                                                                                 title,
-                                                                                 date
-                                                                             }) => new Session(title, new Date(date)))))
+        seasonData.map(({title, sessions}) => new Round(
+            title,
+            sessions.map(({title, date}) => new Session(title, new Date(date)))
+        ))
     );
 }
 
