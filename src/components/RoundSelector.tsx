@@ -15,9 +15,9 @@ export function RoundSelector({rounds, defaultRound, onSelect}: RoundSelectorPro
             value={rounds.indexOf(defaultRound)}
             title='Round'
         >
-            {rounds.map((value, index) => (
+            {rounds.map(({title}, index) => (
                 <option key={index} value={index}>
-                    {value.title}
+                    {title}
                 </option>
             ))}
         </select>
