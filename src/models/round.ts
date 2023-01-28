@@ -45,8 +45,4 @@ export class Round {
     findSessionsBefore(date: Date): Session[] {
         return this.sessions.filter(session => session.date.getTime() < date.getTime());
     }
-
-    findSessionsAfter(date: Date): Session[] {
-        return this.sessions.filter(session => session.date.getTime() > date.getTime());
-    }
 }

@@ -67,26 +67,4 @@ describe('round', () => {
             ]);
         });
     });
-
-    describe('finding sessions after a given date', () => {
-        it('finds nothing when the date is after the last session', () => {
-            const round = aRound()
-                .session(aSession().date(new Date('2022-01-01T12:00Z')))
-                .build();
-            const sessions = round.findSessionsAfter(new Date('2022-01-01T13:00Z'));
-
-            expect(sessions).toEqual([]);
-        });
-
-        it('finds the sessions when the date is before the last session', () => {
-            const round = aRound()
-                .session(aSession().date(new Date('2022-01-01T12:00Z')))
-                .build();
-            const sessions = round.findSessionsAfter(new Date('2022-01-01T11:00Z'));
-
-            expect(sessions).toEqual([
-                new Session(expect.anything(), new Date('2022-01-01T12:00Z'))
-            ]);
-        });
-    });
 });
