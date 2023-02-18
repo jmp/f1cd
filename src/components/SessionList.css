@@ -4,6 +4,7 @@ table {
     border-spacing: 0;
     cursor: pointer;
     width: 245pt;
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 600px) {
