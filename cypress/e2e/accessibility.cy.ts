@@ -27,4 +27,18 @@ describe('color schemes', () => {
     );
 });
 
+describe('screen sizes', () => {
+    const presets = ['macbook-13', 'iphone-6'] as const;
+
+    presets.forEach(preset =>
+        it(`passes with ${preset} screen size`, () => {
+            cy.viewport(preset);
+
+            cy.visit('/');
+            cy.injectAxe();
+            cy.checkA11y();
+        })
+    );
+});
+
 export {};
