@@ -29,7 +29,13 @@ td:last-child {
 }
 
 .selected {
-    background-color: #99aaff44;
+    background-color: #dedef3;
+}
+
+@media (prefers-color-scheme: dark) {
+    .selected {
+        background-color: #262b42;
+    }
 }
 
 .small {

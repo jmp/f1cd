@@ -13,7 +13,7 @@ export function RoundSelector({rounds, defaultRound, onSelect}: RoundSelectorPro
             data-testid='round-selector'
             onChange={event => onSelect(rounds[event.target.value as unknown as number])}
             value={rounds.indexOf(defaultRound)}
-            title='Round'
+            aria-label='Round'
         >
             {rounds.map(({title}, index) => (
                 <option key={index} value={index}>

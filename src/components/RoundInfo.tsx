@@ -21,9 +21,9 @@ export function RoundInfo({round, clock, updateInterval}: RoundInfoProps) {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <main data-testid='round-info'>
+        <div data-testid='round-info'>
             <SessionInfo session={session} date={date} />
             <SessionList {...{round, date, session, setSession}} />
-        </main>
+        </div>
     );
 }

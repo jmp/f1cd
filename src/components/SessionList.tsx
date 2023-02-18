@@ -12,7 +12,7 @@ type SessionProps = {
 
 export function SessionList({ round, date, session, setSession }: SessionProps) {
     return <div data-testid='session-list'>
-        <h3 data-testid='session-list-heading'>Sessions</h3>
+        <h2 data-testid='session-list-heading'>Sessions</h2>
         <table>
             <tbody>
             { formatSessions(session, round, date, setSession) }
