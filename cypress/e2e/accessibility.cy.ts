@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="cypress-axe" />
 
-function setPreferredColorScheme(scheme: string) {
+function setPreferredColorScheme(scheme: 'light' | 'dark') {
     cy.wrap(
         Cypress.automation('remote:debugger:protocol', {
             command: 'Emulation.setEmulatedMedia',
@@ -13,9 +13,11 @@ function setPreferredColorScheme(scheme: string) {
     );
 }
 
-describe('accessibility', () => {
-    ['dark', 'light'].forEach(scheme =>
-        it(`passes accessibility checks in ${scheme} mode`, () => {
+describe('color schemes', () => {
+    const colorSchemes = ['light', 'dark'] as const;
+
+    colorSchemes.forEach(scheme =>
+        it(`passes with prefers-color-scheme=${scheme}`, () => {
             setPreferredColorScheme(scheme);
 
             cy.visit('/');
