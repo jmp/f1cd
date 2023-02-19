@@ -7,7 +7,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test:unit": "react-scripts test --coverage --watchAll=false",
-    "test:cypress": "concurrently 'cross-env BROWSER=none npm start' 'cypress run --browser chrome' --kill-others --success first",
+    "test:cypress": "concurrently 'cross-env BROWSER=none npm start' 'cypress run' --kill-others --success first",
     "test": "npm run test:unit && npm run test:cypress"
   },
   "repository": {
