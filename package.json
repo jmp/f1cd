@@ -6,9 +6,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll=false",
-    "cypress:open": "cypress open",
-    "cypress:test": "concurrently 'npm start' 'cypress run --browser chrome' --kill-others --success first"
+    "test:unit": "react-scripts test --coverage --watchAll=false",
+    "test:cypress": "concurrently 'cross-env BROWSER=none npm start' 'cypress run --browser chrome' --kill-others --success first",
+    "test": "npm run test:unit && npm run test:cypress"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "@types/react": "18.0.28",
     "axe-core": "4.6.3",
     "concurrently": "7.6.0",
+    "cross-env": "7.0.3",
     "cypress": "12.6.0",
     "cypress-axe": "1.3.0",
     "react": "18.2.0",
