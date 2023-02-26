@@ -9,8 +9,8 @@ export class SessionBuilder {
         return this;
     }
 
-    date(date: Date): SessionBuilder {
-        this._date = date;
+    date(date: number | string | Date): SessionBuilder {
+        this._date = new Date(date);
         return this;
     }
 
@@ -22,5 +22,5 @@ export class SessionBuilder {
 export function aSession(): SessionBuilder {
     return new SessionBuilder()
         .title('Practice 1')
-        .date(new Date('2022-01-01T00:00Z'));
+        .date('2022-01-01T00:00Z');
 }

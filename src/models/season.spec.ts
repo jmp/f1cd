@@ -7,22 +7,22 @@ import {aSession} from './session.builder';
 describe('finding the next round after a given date', () => {
     it('has rounds ordered by date', () => {
         const season = aSeason()
-            .round(aRound().session(aSession().date(new Date('2022-01-01T00:00Z'))))
-            .round(aRound().session(aSession().date(new Date('2022-03-01T00:00Z'))))
-            .round(aRound().session(aSession().date(new Date('2022-02-01T00:00Z'))));
+            .round(aRound().session(aSession().date('2022-01-01T00:00Z')))
+            .round(aRound().session(aSession().date('2022-03-01T00:00Z')))
+            .round(aRound().session(aSession().date('2022-02-01T00:00Z')));
 
         expect(() => season.build()).toThrowError();
     });
 
     it('finds the first round when there are rounds after the date', () => {
         const season = aSeason()
-            .round(aRound().session(aSession().date(new Date('2022-01-01T12:00Z'))))
+            .round(aRound().session(aSession().date('2022-01-01T12:00Z')))
             .round(
                 aRound()
                     .title('Correct round')
-                    .session(aSession().title('Correct session').date(new Date('2022-01-07T12:00Z')))
+                    .session(aSession().title('Correct session').date('2022-01-07T12:00Z'))
             )
-            .round(aRound().session(aSession().date(new Date('2022-01-14T12:00Z'))))
+            .round(aRound().session(aSession().date('2022-01-14T12:00Z')))
             .build();
 
         const nextRound = season.findNextRound(new Date('2022-01-05T12:00Z'));
@@ -32,11 +32,11 @@ describe('finding the next round after a given date', () => {
 
     it('finds the last round when there are no rounds after the date', () => {
         const season = aSeason()
-            .round(aRound().session(aSession().date(new Date('2022-01-01T12:00Z'))))
+            .round(aRound().session(aSession().date('2022-01-01T12:00Z')))
             .round(
                 aRound()
                     .title('Correct round')
-                    .session(aSession().title('Correct session').date(new Date('2022-01-07T12:00Z')))
+                    .session(aSession().title('Correct session').date('2022-01-07T12:00Z'))
             )
             .build();
 
@@ -50,9 +50,9 @@ describe('finding the next round after a given date', () => {
             .round(
                 aRound()
                     .title('Correct round')
-                    .session(aSession().title('Correct session').date(new Date('2022-08-26T12:00Z')))
+                    .session(aSession().title('Correct session').date('2022-08-26T12:00Z'))
             )
-            .round(aRound().session(aSession().date(new Date('2022-09-02T12:00Z'))))
+            .round(aRound().session(aSession().date('2022-09-02T12:00Z')))
             .build();
 
         const nextRound = season.findNextRound(new Date('2022-08-26T09:00Z'));

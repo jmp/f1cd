@@ -5,18 +5,18 @@ import {aSession} from './session.builder';
 describe('round', () => {
     it('has sessions ordered by date', () => {
         const round = aRound()
-            .session(aSession().date(new Date('2022-01-01T12:00Z')))
-            .session(aSession().date(new Date('2022-03-01T12:00Z')))
-            .session(aSession().date(new Date('2022-02-01T12:00Z')));
+            .session(aSession().date('2022-01-01T12:00Z'))
+            .session(aSession().date('2022-03-01T12:00Z'))
+            .session(aSession().date('2022-02-01T12:00Z'));
 
         expect(() => round.build()).toThrowError();
     });
 
     it('has a start date equal to the date of the first session', () => {
         const round = aRound()
-            .session(aSession().date(new Date('2022-01-01T12:00Z')))
-            .session(aSession().date(new Date('2022-01-02T12:00Z')))
-            .session(aSession().date(new Date('2022-01-03T12:00Z')))
+            .session(aSession().date('2022-01-01T12:00Z'))
+            .session(aSession().date('2022-01-02T12:00Z'))
+            .session(aSession().date('2022-01-03T12:00Z'))
             .build();
 
         expect(round.startDate).toEqual(new Date('2022-01-01T00:00Z'));
@@ -24,9 +24,9 @@ describe('round', () => {
 
     it('has an end date equal to the date following the last session', () => {
         const round = aRound()
-            .session(aSession().date(new Date('2022-01-01T12:00Z')))
-            .session(aSession().date(new Date('2022-01-02T12:00Z')))
-            .session(aSession().date(new Date('2022-01-03T12:00Z')))
+            .session(aSession().date('2022-01-01T12:00Z'))
+            .session(aSession().date('2022-01-02T12:00Z'))
+            .session(aSession().date('2022-01-03T12:00Z'))
             .build();
 
         expect(round.endDate).toEqual(new Date('2022-01-04T00:00Z'));
@@ -35,9 +35,9 @@ describe('round', () => {
     describe('finding the next session', () => {
         it('finds the first session after the given date', () => {
             const round = aRound()
-                .session(aSession().date(new Date('2022-01-01T12:00Z')))
-                .session(aSession().date(new Date('2022-01-07T12:00Z')))
-                .session(aSession().date(new Date('2022-01-14T12:00Z')))
+                .session(aSession().date('2022-01-01T12:00Z'))
+                .session(aSession().date('2022-01-07T12:00Z'))
+                .session(aSession().date('2022-01-14T12:00Z'))
                 .build();
             const nextSession = round.findNextSession(new Date('2022-01-05T12:00Z'));
 
@@ -46,8 +46,8 @@ describe('round', () => {
 
         it('finds the last session when there are no sessions after the given date', () => {
             const round = aRound()
-                .session(aSession().date(new Date('2022-01-01T12:00Z')))
-                .session(aSession().date(new Date('2022-01-07T12:00Z')))
+                .session(aSession().date('2022-01-01T12:00Z'))
+                .session(aSession().date('2022-01-07T12:00Z'))
                 .build();
             const nextSession = round.findNextSession(new Date('2022-01-14T12:00Z'));
 
@@ -58,7 +58,7 @@ describe('round', () => {
     describe('finding sessions before a given date', () => {
         it('finds nothing when the date is before the earliest session', () => {
             const round = aRound()
-                .session(aSession().date(new Date('2022-01-01T12:00Z')))
+                .session(aSession().date('2022-01-01T12:00Z'))
                 .build();
             const sessions = round.findSessionsBefore(new Date('2022-01-01T11:00Z'));
 
@@ -67,7 +67,7 @@ describe('round', () => {
 
         it('finds the sessions when the date is after the earliest session', () => {
             const round = aRound()
-                .session(aSession().date(new Date('2022-01-01T12:00Z')))
+                .session(aSession().date('2022-01-01T12:00Z'))
                 .build();
             const sessions = round.findSessionsBefore(new Date('2022-01-05T13:00Z'));
 
