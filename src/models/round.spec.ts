@@ -3,11 +3,20 @@ import {aRound} from './round.builder';
 import {aSession} from './session.builder';
 
 describe('round', () => {
+    it('has sessions ordered by date', () => {
+        const round = aRound()
+            .session(aSession().date(new Date('2022-01-01T12:00Z')))
+            .session(aSession().date(new Date('2022-03-01T12:00Z')))
+            .session(aSession().date(new Date('2022-02-01T12:00Z')));
+
+        expect(() => round.build()).toThrowError();
+    });
+
     it('has a start date equal to the date of the first session', () => {
         const round = aRound()
-            .session(aSession().date(new Date('2022-01-03T12:00Z')))
             .session(aSession().date(new Date('2022-01-01T12:00Z')))
             .session(aSession().date(new Date('2022-01-02T12:00Z')))
+            .session(aSession().date(new Date('2022-01-03T12:00Z')))
             .build();
 
         expect(round.startDate).toEqual(new Date('2022-01-01T00:00Z'));
@@ -16,8 +25,8 @@ describe('round', () => {
     it('has an end date equal to the date following the last session', () => {
         const round = aRound()
             .session(aSession().date(new Date('2022-01-01T12:00Z')))
-            .session(aSession().date(new Date('2022-01-03T12:00Z')))
             .session(aSession().date(new Date('2022-01-02T12:00Z')))
+            .session(aSession().date(new Date('2022-01-03T12:00Z')))
             .build();
 
         expect(round.endDate).toEqual(new Date('2022-01-04T00:00Z'));

@@ -8,8 +8,21 @@ export class Round {
         readonly title: string,
         readonly sessions: Session[]
     ) {
-        let startDate = sessions[0].date;
-        let endDate = sessions[0].date;
+        let startDate = new Date(
+            Date.UTC(
+                sessions[0].date.getUTCFullYear(),
+                sessions[0].date.getUTCMonth(),
+                sessions[0].date.getUTCDate()
+            )
+        );
+        let endDate = new Date(
+            Date.UTC(
+                sessions[0].date.getUTCFullYear(),
+                sessions[0].date.getUTCMonth(),
+                sessions[0].date.getUTCDate()
+            )
+        );
+        let previousDate = startDate;
         sessions.forEach(({ date }) => {
             if (date.getTime() <= startDate.getTime()) {
                 startDate = new Date(
@@ -29,6 +42,10 @@ export class Round {
                     )
                 );
             }
+            if (date.getTime() < previousDate.getTime()) {
+                throw new Error('sessions should be ordered by date');
+            }
+            previousDate = date;
         });
         this.startDate = startDate;
         this.endDate = endDate;
