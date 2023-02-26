@@ -5,6 +5,15 @@ import {aSeason} from './season.builder';
 import {aSession} from './session.builder';
 
 describe('finding the next round after a given date', () => {
+    it('has rounds ordered by date', () => {
+        const season = aSeason()
+            .round(aRound().session(aSession().date(new Date('2022-01-01T00:00Z'))))
+            .round(aRound().session(aSession().date(new Date('2022-03-01T00:00Z'))))
+            .round(aRound().session(aSession().date(new Date('2022-02-01T00:00Z'))));
+
+        expect(() => season.build()).toThrowError();
+    });
+
     it('finds the first round when there are rounds after the date', () => {
         const season = aSeason()
             .round(aRound().session(aSession().date(new Date('2022-01-01T12:00Z'))))
