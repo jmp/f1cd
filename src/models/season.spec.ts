@@ -12,7 +12,7 @@ describe('finding the next round after a given date', () => {
         expect(() => season.build()).toThrowError();
     });
 
-    it('finds the first round when there are rounds after the date', () => {
+    it('finds the next round when there are rounds after the date', () => {
         const season = aSeason()
             .round(aRound().session(aSession().date('2022-01-01T12:00Z')))
             .round(aRound().session(aSession().date('2022-01-07T12:00Z')).title('expected'))
