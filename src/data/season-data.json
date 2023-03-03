@@ -29,23 +29,23 @@
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2023-03-17T15:30Z"
+        "date": "2023-03-17T13:30Z"
       },
       {
         "title": "Practice 2",
-        "date": "2023-03-17T19:00Z"
+        "date": "2023-03-17T17:00Z"
       },
       {
         "title": "Practice 3",
-        "date": "2023-03-18T15:30Z"
+        "date": "2023-03-18T13:30Z"
       },
       {
         "title": "Qualifying",
-        "date": "2023-03-18T19:00Z"
+        "date": "2023-03-18T17:00Z"
       },
       {
         "title": "Race",
-        "date": "2023-03-19T19:00Z"
+        "date": "2023-03-19T17:00Z"
       }
     ]
   },
@@ -54,23 +54,23 @@
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2023-03-31T04:30Z"
+        "date": "2023-03-31T02:30Z"
       },
       {
         "title": "Practice 2",
-        "date": "2023-03-31T08:00Z"
+        "date": "2023-03-31T06:00Z"
       },
       {
         "title": "Practice 3",
-        "date": "2023-04-01T04:30Z"
+        "date": "2023-04-01T02:30Z"
       },
       {
         "title": "Qualifying",
-        "date": "2023-04-01T08:00Z"
+        "date": "2023-04-01T06:00Z"
       },
       {
         "title": "Race",
-        "date": "2023-04-02T08:00Z"
+        "date": "2023-04-02T06:00Z"
       }
     ]
   },
@@ -79,23 +79,23 @@
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2023-04-28T12:30Z"
+        "date": "2023-04-28T10:30Z"
       },
       {
         "title": "Qualifying",
-        "date": "2023-04-28T16:00Z"
+        "date": "2023-04-28T14:00Z"
       },
       {
         "title": "Practice 2",
-        "date": "2023-04-29T12:30Z"
+        "date": "2023-04-29T10:30Z"
       },
       {
         "title": "Sprint",
-        "date": "2023-04-29T16:30Z"
+        "date": "2023-04-29T14:30Z"
       },
       {
         "title": "Race",
-        "date": "2023-04-30T14:00Z"
+        "date": "2023-04-30T12:00Z"
       }
     ]
   },
@@ -104,23 +104,23 @@
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2023-05-05T20:30Z"
+        "date": "2023-05-05T19:30Z"
       },
       {
         "title": "Practice 2",
-        "date": "2023-05-06T00:00Z"
+        "date": "2023-05-05T23:00Z"
       },
       {
         "title": "Practice 3",
-        "date": "2023-05-06T19:30Z"
+        "date": "2023-05-06T17:30Z"
       },
       {
         "title": "Qualifying",
-        "date": "2023-05-06T23:00Z"
+        "date": "2023-05-06T21:00Z"
       },
       {
         "title": "Race",
-        "date": "2023-05-07T22:30Z"
+        "date": "2023-05-07T20:30Z"
       }
     ]
   },
@@ -129,23 +129,23 @@
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2023-05-19T14:30Z"
+        "date": "2023-05-19T12:30Z"
       },
       {
         "title": "Practice 2",
-        "date": "2023-05-19T18:00Z"
+        "date": "2023-05-19T16:00Z"
       },
       {
         "title": "Practice 32",
-        "date": "2023-05-20T13:30Z"
+        "date": "2023-05-20T11:30Z"
       },
       {
         "title": "Qualifying",
-        "date": "2023-05-20T17:00Z"
+        "date": "2023-05-20T15:00Z"
       },
       {
         "title": "Race",
-        "date": "2023-05-21T16:00Z"
+        "date": "2023-05-21T14:00Z"
       }
     ]
   },
@@ -154,23 +154,23 @@
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2023-05-26T14:30Z"
+        "date": "2023-05-26T12:30Z"
       },
       {
         "title": "Practice 2",
-        "date": "2023-05-26T18:00Z"
+        "date": "2023-05-26T16:00Z"
       },
       {
         "title": "Practice 3",
-        "date": "2023-05-27T13:30Z"
+        "date": "2023-05-27T11:30Z"
       },
       {
         "title": "Qualifying",
-        "date": "2023-05-27T17:30Z"
+        "date": "2023-05-27T15:00Z"
       },
       {
         "title": "Race",
-        "date": "2023-05-28T16:00Z"
+        "date": "2023-05-28T14:00Z"
       }
     ]
   },
@@ -179,23 +179,23 @@
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2023-06-02T14:30Z"
+        "date": "2023-06-02T12:30Z"
       },
       {
         "title": "Practice 2",
-        "date": "2023-06-02T18:00Z"
+        "date": "2023-06-02T16:00Z"
       },
       {
         "title": "Practice 3",
-        "date": "2023-06-03T13:30Z"
+        "date": "2023-06-03T11:30Z"
       },
       {
         "title": "Qualifying",
-        "date": "2023-06-03T17:00Z"
+        "date": "2023-06-03T15:00Z"
       },
       {
         "title": "Race",
-        "date": "2023-06-04T16:00Z"
+        "date": "2023-06-04T14:00Z"
       }
     ]
   },
@@ -204,23 +204,23 @@
     "sessions": [
       {
         "title": "Practice 1",
-        "date": "2023-06-16T20:30Z"
+        "date": "2023-06-16T18:30Z"
       },
       {
         "title": "Practice 2",
-        "date": "2023-06-17T00:00Z"
+        "date": "2023-06-16T22:00Z"
       },
       {
         "title": "Practice 3",
-        "date": "2023-06-17T19:30Z"
+        "date": "2023-06-17T17:30Z"
       },
       {
         "title": "Qualifying",
-        "date": "2023-06-17T23:00Z"
+        "date": "2023-06-17T21:00Z"
       },
       {
         "title": "Race",
-        "date": "2023-06-18T21:00Z"
+        "date": "2023-06-18T19:00Z"
       }
     ]
   },
