@@ -33,13 +33,13 @@ describe('screen sizes', () => {
     );
 });
 
-function setPreferredColorScheme(scheme: 'light' | 'dark') {
+function setPreferredColorScheme(value: 'light' | 'dark') {
     cy.wrap(
         Cypress.automation('remote:debugger:protocol', {
             command: 'Emulation.setEmulatedMedia',
             params: {
                 media: 'page',
-                features: [{name: 'prefers-color-scheme', value: scheme}],
+                features: [{name: 'prefers-color-scheme', value}],
             },
         })
     );
