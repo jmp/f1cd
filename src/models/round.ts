@@ -8,30 +8,12 @@ export class Round {
         readonly title: string,
         readonly sessions: Session[]
     ) {
-        let startDate = new Date(
-            Date.UTC(
-                sessions[0].date.getUTCFullYear(),
-                sessions[0].date.getUTCMonth(),
-                sessions[0].date.getUTCDate()
-            )
-        );
-        let endDate = new Date(
-            Date.UTC(
-                sessions[0].date.getUTCFullYear(),
-                sessions[0].date.getUTCMonth(),
-                sessions[0].date.getUTCDate()
-            )
-        );
+        let startDate = this.convertToUTC(sessions[0].date);
+        let endDate = startDate;
         let previousDate = startDate;
         sessions.forEach(({ date }) => {
             if (date.getTime() <= startDate.getTime()) {
-                startDate = new Date(
-                    Date.UTC(
-                        date.getUTCFullYear(),
-                        date.getUTCMonth(),
-                        date.getUTCDate()
-                    )
-                );
+                startDate = this.convertToUTC(date);
             }
             if (date.getTime() >= endDate.getTime()) {
                 endDate = new Date(
@@ -61,5 +43,15 @@ export class Round {
 
     findSessionsBefore(date: Date): Session[] {
         return this.sessions.filter(session => session.date.getTime() < date.getTime());
+    }
+
+    private convertToUTC(date: Date): Date {
+        return new Date(
+            Date.UTC(
+                date.getUTCFullYear(),
+                date.getUTCMonth(),
+                date.getUTCDate()
+            )
+        )
     }
 }
