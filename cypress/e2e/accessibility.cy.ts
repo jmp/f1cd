@@ -1,18 +1,6 @@
 /// <reference types="cypress" />
 /// <reference types="cypress-axe" />
 
-function setPreferredColorScheme(scheme: 'light' | 'dark') {
-    cy.wrap(
-        Cypress.automation('remote:debugger:protocol', {
-            command: 'Emulation.setEmulatedMedia',
-            params: {
-                media: 'page',
-                features: [{name: 'prefers-color-scheme', value: scheme}],
-            },
-        })
-    );
-}
-
 describe('color schemes', () => {
     const colorSchemes = ['light', 'dark'] as const;
 
@@ -44,5 +32,17 @@ describe('screen sizes', () => {
         })
     );
 });
+
+function setPreferredColorScheme(scheme: 'light' | 'dark') {
+    cy.wrap(
+        Cypress.automation('remote:debugger:protocol', {
+            command: 'Emulation.setEmulatedMedia',
+            params: {
+                media: 'page',
+                features: [{name: 'prefers-color-scheme', value: scheme}],
+            },
+        })
+    );
+}
 
 export {};
