@@ -28,9 +28,10 @@ function formatSessions(selectedSession: Session, round: Round, date: Date, onCl
         const classes = [];
         if (pastSessions.includes(session)) {
             classes.push('before');
-        }
-        if (session === selectedSession) {
+        } else if (session === selectedSession) {
             classes.push('selected');
+        } else {
+            classes.push('after');
         }
         return (
             <tr
@@ -39,9 +40,9 @@ function formatSessions(selectedSession: Session, round: Round, date: Date, onCl
                 className={classes.join(' ')}
                 onClick={() => onClick(session)}
             >
-                <td>{session.title}</td>
-                <td>{formatDate(session.date)}</td>
-                <td>{formatTime(session.date)}</td>
+                <td data-testid="session-list-item-title">{session.title}</td>
+                <td data-testid="session-list-item-date">{formatDate(session.date)}</td>
+                <td data-testid="session-list-item-time">{formatTime(session.date)}</td>
             </tr>
         );
     });
